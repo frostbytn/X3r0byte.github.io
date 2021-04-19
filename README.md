@@ -1,3 +1,8 @@
+# My Homepage ❤️
+
+Nothing much to say. Used a bootstrap template to quickly get this up and running. Works really well for this use case, so there's the propaganda below!
+
+
 # Dark Mode template for Bootstrap 5
 
 
