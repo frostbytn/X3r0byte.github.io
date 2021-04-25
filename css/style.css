@@ -1,0 +1,38 @@
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #525151; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(41, 41, 41); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(41, 41, 41); 
+  }
+
+  .no-x{
+      overflow-x: hidden;
+  }
+
+  .card{
+    transition: background-color 0.5s ease;
+  }
+
+  .card:hover{
+    transform: scale(1.02);
+    background-color: rgb(73, 73, 73);
+    transition: transform 250ms;
+  }
+
+  .right{
+      float: right;
+  }

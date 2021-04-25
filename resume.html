@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -13,6 +14,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
   <!-- Dark MDB theme -->
   <link rel="stylesheet" href="css/mdb.dark.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
   <!-- Regular MDB theme -->
   <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
 </head>
@@ -31,115 +33,398 @@
     </div>
   </div>
 </nav>
+
 <body>
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
   <script type="text/javascript"></script>
-  <div class="container">
-    <br> <br> <br>
-    <section>
-      <br>
-      <h2 class="text-left"><strong>Gary McKeever</strong></h2>
-      <div class="text-center">
-        <hr>
-      </div>
-      <br>
+  <div style='padding-top: 75px;'>
+    <section class="p-2 mb-2 no-x">
+      <style>
+        .scrollspy-example {
+          position: relative;
+          height: 87vh;
+          overflow-x: hidden;
+          overflow-y: auto;
+          padding: 45px;
+        }
+      </style>
       <div class="row">
-        <h5>OBJECTIVE</h5>
-        <p class="small text-muted text-uppercase mb-2">
-          objective statement
-        </p>
-        <p>some content here.
-        </p>
+        <!-- index -->
+        <div class="col-md-1">
+          <div id="scrollspy" class="sticky-top">
+            <ul class="nav flex-column nav-pills menu-sidebar">
+              <li class="nav-item">
+                <a class="nav-link" href="#header">Introduction</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#work-experience">Work Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#education">Education</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#portfolio">Portfolio</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#table">Table</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="#about">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- content -->
+        <div class="col-md-11">
+          <div data-mdb-spy="scroll" data-mdb-target="#scrollspy" data-mdb-offset="0" class="scrollspy-example">
+            <section id='header'>
+              <div>
+                <h2 class="text-left"><strong>Gary McKeever</strong></h2>
+                <p class="small text-muted text-uppercase mb-2">
+                  <a href="mailto:gary.mckeever@protonmail.com">gary.mckeever@protonmail.com <i
+                      class="fas fa-envelope"></i></a> <br>
+                  <a href="https://x3r0byte.github.io/">homepage <i class="fas fa-link"></i></a> <br>
+                  <a href="https://github.com/X3r0byte">GitHub <i class="fab fa-github"></i></a><br>
+                  <a href="https://x3r0byte.github.io/resume.pdf">Resume <i class="fas fa-file-download"></i></a>
+                </p>
+              </div>
+              <hr class="my-5" />
+              <h3 class="text-left"><strong>Introduction <i class="fas fa-meteor"></i></strong></h3>
+              <p class="small text-muted text-uppercase mb-2">
+              </p>
+              <p>Content here.
+              </p>
+            </section>
+            <hr class="my-5" />
+            <!--Section: Cards-->
+            <!--Section: Cards-->
+            <section id='work-experience'>
+              <div class="text-left my-5">
+                <h3 class="text-left"><strong>Work Experience <i class="fas fa-briefcase"></i></strong></h3>
+                <p class="small text-muted text-uppercase mb-2">
+                  General highlights
+                </p>
+              </div>
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>Northeast Technical Services (NTS) <a
+                          onclick="alert('Please note that I was not responsible for this website (NTS homepage) in any capacity.'); window.open('https://www.netechnical.com/');"><i
+                            class="fas fa-link"></i></a>
+                        <p class='right text-muted'>2016 - current</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Software Developer
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      <ul>
+                        <li>
+                          bullet 1.
+                        </li>
+                      </ul>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>CVS Pharmacy <a href="https://www.cvs.com/target/pharmacy"><i class="fas fa-link"></i></a>
+                        <p class='right text-muted'>2015 - 2017</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Pharmacy Technician | Inventory Manager
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>Target Corporation <a href="https://www.target.com/"><i class="fas fa-link"></i></a>
+                        <p class='right text-muted'>2011 - 2015</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Pharmacy Technician | Barista
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>Prior Employment</a>
+                        <p class='right text-muted'>2004 - 2011</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Various early part time work
+                      </p>
+                      <p class="card-text">
+                        More information upon request.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </section>
+            <hr class="my-5" />
+            <section id='education'>
+              <div class="text-left my-5">
+                <h3 class="text-left"><strong>Education <i class="fas fa-university"></i></strong></h3>
+                <p class="small text-muted text-uppercase mb-2">
+                  Current Highest Level - Undergraduate, University of Minnesota Duluth <a
+                    href="https://www.d.umn.edu/"><i class="fas fa-link"></i></a>
+                </p>
+              </div>
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>Bachelor's Computer Science <p class='right text-muted'>2014 - 2017</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Major | University Minnesota Duluth <a href="https://www.cs.umd.edu/"><i
+                            class="fas fa-link"></i></a><br>
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>Bachelor's Business Administration <p class='right text-muted'>2014 - 2017</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Minor | University Minnesota Duluth <a href="https://lsbe.d.umn.edu/"><i
+                            class="fas fa-link"></i></a>
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>Associate of Arts <p class='right text-muted'>2007 - 2010</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Mesabi Range Community and Technical College <a href="https://www.mesabirange.edu/"><i
+                            class="fas fa-link"></i></a>
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5>High School Diploma <p class='right text-muted'>Graduated 2007</p>
+                      </h5>
+                      <p class="small text-muted text-uppercase mb-2">
+                        Eveleth - Gilbert High School <a href="https://egsenior.rrps.org/"><i
+                            class="fas fa-link"></i></a>
+                      </p>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+              </div>
+              <!--Grid row-->
+            </section>
+
+
+            <hr class="my-5" />
+            <section id='portfolio'>
+              <div class="text-left my-5">
+                <h3 class="text-left"><strong>Portfolio <i class="fas fa-folder-open"></i></strong></h3>
+                <p class="small text-muted text-uppercase mb-2">
+                  apps, projects, and other relevant items
+                </p>
+              </div>
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 1 <a href=""><i
+                        class="fas fa-link"></i></a></h5>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                      <button type="button" class="btn btn-primary">
+                        action
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 2 <a href=""><i
+                        class="fas fa-link"></i></a></h5>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                      <button type="button" class="btn btn-primary">
+                        action
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 3 <a href=""><i
+                        class="fas fa-link"></i></a></h5>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                      <button type="button" class="btn btn-primary">
+                        action
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h5 class="card-title">Project 4 <a href=""><i
+                        class="fas fa-link"></i></a></h5>
+                      <p class="card-text">
+                        content here.
+                      </p>
+                      <button type="button" class="btn btn-primary">
+                        action
+                      </button>
+                    </div>
+                  </div>
+                </div>
+            </section>
+            <hr class="my-5" />
+
+            <!-- <section id='table'>
+              <div class="text-left">
+                <h3><strong>Table data</strong></h3>
+              </div><br>
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td colspan="2">Larry the Bird</td>
+                    <td>@twitter</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section> 
+            <hr class="my-5" />-->
+            <section id='about'>
+              <div class="col-lg-12 col-md-12 mb-4">
+                <div class="card mb-4">
+                  <div class="card-body">
+                    <h5>About This Resume <i class="fas fa-info-circle"></i></h5>
+                    <p class="text-muted mb-2">
+                      I value privacy. So, I withhold real world information of myself and those around me. Below are
+                      some bullet points pertaining to potential account name discrepancies and left out information.
+                      Thank you understanding.
+                    </p>
+                    <p class="card-text">
+                    <ul>
+                      <li>
+                        References are available upon request.
+                      </li>
+                      <li>
+                        Additional contact information (phone, address, etc) is available upon request by setting up a
+                        voice/virtual meeting via email.
+                      </li>
+                      <li>
+                        Additional work information is available upon request. Items in the ‘Work Experience’ section
+                        are work history highlights and not complete.
+                      </li>
+                      <li>
+                        I use the pseudonym ‘Adrian Shephard’. I try to not use this name professionally. However, as
+                        my
+                        personal interests are tied so closely to my profession, there may be overlap. I apologize for
+                        any confusion.
+                      </li>
+                      <li>
+                        This is a static webpage, so it may be out of date. Please contact me via email for the most
+                        up
+                        to date info!
+                      </li>
+                    </ul>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
       </div>
-      <hr class="my-5" />
-      <!--Section: Cards-->
-      <section>
-        <!--Section: Cards-->
-        <section>
-          <div class="text-left my-5">
-            <h3 class="text-left"><strong>Experience</strong></h3>
-          </div>
-          <!--Grid row-->
-          <div class="row">
-
-            <!--Grid column-->
-            <div class="col-lg-12 col-md-12 mb-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">Experience 1</h5>
-                  <p class="card-text">
-                    content here.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!--Grid column-->
-             <!--Grid column-->
-             <div class="col-lg-12 col-md-12 mb-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">Experience 2</h5>
-                  <p class="card-text">
-                    content here.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!--Grid column-->
-            
-             <!--Grid column-->
-             <div class="col-lg-12 col-md-12 mb-4">
-              <div class="card mb-4">
-                <div class="card-body">
-                  <h5 class="card-title">Experience 3</h5>
-                  <p class="card-text">
-                    content here.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <!--Grid column-->           
-
-          </div>
-          <!--Grid row-->
-        </section>
-        <section>
-          <div class="text-center">
-            <h4><strong>Table data</strong></h4>
-          </div>
-          <table class="table table-striped">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colspan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
-        </section>
-      </section>
     </section>
   </div>
 </body>
