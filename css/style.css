@@ -36,3 +36,75 @@
   .right{
       float: right;
   }
+
+  .icon{
+    width: 25px;
+    height: 25px;
+  }
+
+  .image{
+    width: 100%;
+    height: 100%;
+  }
+  
+  .low-level{
+    background-color: rgb(255, 211, 182);
+  }
+
+  .mid-level{
+    background-color: rgb(255, 248, 182);
+  }
+
+  .high-level{
+    background-color: rgb(182, 255, 194);
+  }
+
+  .pill{
+    transition: background-color 0.2s ease;
+  }
+  .pill{
+    border: none;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 32px;
+    color: black;
+  }
+
+  .pill:hover{
+    transform: scale(1.1);
+    background-color: rgb(190, 255, 252);
+    color:rgb(24, 24, 24)  !important;
+    transition: transform 250ms;
+  }
+
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(27, 27, 27);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+  
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+  .italics{
+    font-style: italic;
+  }
