@@ -46,6 +46,12 @@
     width: 100%;
     height: 100%;
   }
+
+  .me{
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+  }
   
   .low-level{
     background-color: rgb(255, 211, 182);
