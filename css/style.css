@@ -65,6 +65,11 @@
     background-color: rgb(182, 255, 194);
   }
 
+  .interest{
+    background-color: rgb(209, 209, 209);
+
+  }
+
   .pill{
     transition: background-color 0.2s ease;
   }
