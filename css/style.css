@@ -68,7 +68,11 @@
 
 .interest{
   background-color: rgb(209, 209, 209);
+}
 
+.space{
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .pill{

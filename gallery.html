@@ -43,34 +43,23 @@
 
     function loadImages() {
 
-      var folder = "https://X3r0byte.io/img/iceland";
+      for (let i = 0; i < 5; i++) {
 
-      $.ajax({
-        url: folder,
-        success: function (data) {
-          $(data).find("a").attr("href", function (i, val) {
-            if (val.match(/\.(jpe?g|png|gif)$/)) {
-
-              console.log(val);
-
-              // $("body").append("<img src='" + folder + val + "'>");
-            }
-          });
-        }
-      });
-
-      var images = ["./img/iceland/falls-2.jpg", "./img/iceland/falls.jpg", "./img/iceland/iceberg.jpg"]
-
-      for (let i = 0; i < images.length; i++) {
-
+        try{
         var element = document.createElement("li");
         var img = document.createElement("img");
 
-        img.src = images[i];
+        img.src = './img/iceland/' + i + '.jpg';
         element.loading = 'lazy';
+
+        console.log(img);
 
         element.append(img);
         document.getElementById('images').appendChild(element);
+        }
+        catch{
+          break;
+        }
       }
     }
 
