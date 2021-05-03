@@ -54,6 +54,17 @@
   border-radius: 50%;
 }
 
+.me-large{
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  
+}
+
+.large{
+  font-size: 96px;
+}
+
 .low-level{
   background-color: rgb(255, 211, 182);
 }

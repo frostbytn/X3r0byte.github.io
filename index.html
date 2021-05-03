@@ -30,51 +30,164 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="./index.html">Home<span class="sr-only">(current)</span></a>
-      <!-- <a class="nav-item nav-link" href="./about.html">About</a> -->
-      <a class="nav-item nav-link" href="./resume.html">Resume</a>
-      <!-- <a class="nav-item nav-link" href="./contact.html">Contact</a> -->
     </div>
   </div>
   <span class="right">
-    <button type="button" onclick="window.open('mailto:shephard@frostbytn.com')"  class="btn btn-dark btn-md btn-floating space">
+    <button type="button" onclick="window.open('mailto:shephard@frostbytn.com')"
+      class="btn btn-dark btn-md btn-floating space">
       <i class="fas fa-envelope"></i>
-      </button>
-    <button type="button" onclick="window.open('https://www.linkedin.com/in/gmckeever-88/');"  class="btn btn-dark btn-floating btn-md space">
+    </button>
+    <button type="button" onclick="window.open('https://www.linkedin.com/in/gmckeever-88/');"
+      class="btn btn-dark btn-floating btn-md space">
       <i class="fab fa-linkedin"></i>
     </button>
-    <button type="button" onclick="window.open('https://github.com/X3r0byte');" class="btn btn-dark btn-floating btn-md space">
+    <button type="button" onclick="window.open('https://github.com/X3r0byte');"
+      class="btn btn-dark btn-floating btn-md space">
       <i class="fab fa-github"></i>
     </button>
   </span>
 </nav>
+
 <body>
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- custom js -->
   <script type="text/javascript" src="js/script.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <!-- Custom scripts -->
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+
+    var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder', 'System Designer'];
+    var greeting = 'Hello! My name is Gary McKeever, and I am a';
+
+    var direction = 1;
+    var letterPos = 0;
+    var headerPos = 0;
+    var header = '';
+    var letter = '';
+    var rando = Math.floor(Math.random() * 5);
+    var occupation = document.getElementById('txt-occupation');
+
+    $(document).ready(function () {
+      var cursor = document.getElementById('txt-cursor');
+
+      // kick off with the writer
+     setTimeout(writer, 75);
+
+
+     // blinking cursor
+     setInterval(function(){
+      if(cursor.innerText == "|"){
+        cursor.innerText = "";
+      }
+      else{
+        cursor.innerText = "|";
+      }
+     }, 250);
+
+    });
+
+
+    async function writer() {
+      var occupation = document.getElementById('txt-occupation');
+
+      // get header and letter of header from array
+      header = occupations[rando];
+      letter = header[letterPos];
+
+      console.log(direction);
+
+      // if the letter position is less than the length and 
+      // direction is set to write
+      if (letterPos < header.length && direction == 1) {
+
+        // write the letter to the text
+        occupation.innerText += letter;
+
+        // increment the position
+        letterPos++;
+
+        // 'recurse' or fire the timer again
+        setTimeout(writer, 75);
+
+      }
+      // else, the full header is written, so wait
+      else {
+          // after 2 seconds, set write direction and discontinue waiting
+          await new Promise(r => setTimeout(r, 4000)).then(function () {
+
+            direction = -1;
+
+            // erase the text
+            setTimeout(eraser, 50);
+         });
+      }
+    }
+
+    function eraser() {
+      var occupation = document.getElementById('txt-occupation');
+
+      // if direction is set to erase
+      if (direction == -1) {
+
+        // slice off the last character and 'recurse'
+        occupation.innerText = occupation.innerText.slice(0, -1);
+        setTimeout(eraser, 50);
+
+        // if there is no more text to erase
+        if (occupation.innerText == '') {
+
+          // reset letter position
+          letterPos = 0;
+          var prevRando = rando;
+
+          // try to prevent a duplicate word
+          while(rando == prevRando){
+            rando = Math.floor(Math.random() * 5);
+          }
+
+          headerPos = rando;
+          direction = 1;
+
+          // kick off the writer again
+          setTimeout(writer, 75);
+        }
+      }
+    }
+
+
+  </script>
   <div class="container">
     <br> <br> <br>
     <section>
       <br>
-      <h2 class="text-center"><strong>Home</strong></h2>
+      <!-- <h2 class="text-center"><strong>Home</strong></h2> -->
       <div class="text-center">
-        <hr>
+        <!-- <hr> -->
       </div>
       <br>
       <div class="row">
-        <h5>Hello!</h5>
-        <p class="small text-muted text-uppercase mb-2">
+        <div class="col-lg-10 left">
+          <h5 id=txt-greeting class='text-muted'>Hello! My name is Gary McKeever, and I am a</h5>
+          <span class='large'>></span><span id='txt-occupation' class='large'></span><span id='txt-cursor' class='large'>|</span>
+          <p class='text-muted'>
+            I do this thing where I do really cool things but they're not really cool because I do them.
+          </p>
+        </div>
+        <div class='col-lg-2 right'>
+          <img class='me-large' src='./img/me.jpg'>
+        </div>
 
-        </p>
-        <p>This is a work in progress, sorry for the confusion!
-        </p>
       </div>
+
+
+
       <hr class="my-5" />
-     <section>
+      <section>
         <div class="text-center my-5">
-          <h4><strong>Quick Cards</strong></h4>
+          <!-- <h4><strong>Quick Cards</strong></h4> -->
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-12 mb-4">
@@ -84,7 +197,7 @@
                 <p class="card-text">
                   For employment, here is my online resume. Please visit!
                 </p>
-                <button type="button" onclick='resume();' class="btn btn-primary">
+                <button type="button" onclick='resume();' class="btn btn-outline-info">
                   Go
                 </button>
               </div>
@@ -115,7 +228,7 @@
                 <p class="card-text">
                   Here is a repository of my travels!
                 </p>
-                <a href="#!" class="btn btn-primary">Go</a>
+                <a href="#!" class="btn btn-outline-info">Go</a>
               </div>
             </div>
           </div>
@@ -127,7 +240,7 @@
                 <p class="card-text">
                   Here is a repository of my projects.
                 </p>
-                <a href="#" class="btn btn-primary">go</a>
+                <a href="#" class="btn btn-outline-info">go</a>
               </div>
             </div>
           </div>
@@ -189,6 +302,9 @@
     © 2021 Copyright:
     <a class="text-white" href="">
       Gary McKeever</a>
+    <p class='left text-muted'>
+      Avatar photo credit: <a href='https://herbergphotography.com/'>Herberg Photography</a>
+    </p>
   </div>
   <!-- Copyright -->
 </footer>
