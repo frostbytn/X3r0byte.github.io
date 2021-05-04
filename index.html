@@ -60,22 +60,18 @@
   <script type="text/javascript">
 
     var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder', 'System Designer'];
-    // var greeting = 'Hello! My name is Gary McKeever, and I am a';
 
     var direction = 1;
     var letterPos = 0;
-    // var headerPos = 0;
-    var header = '';
+    var textPos = 0;
     var letter = '';
-    var rando = Math.floor(Math.random() * occupations.length);
-    // var occupation = document.getElementById('txt-occupation');
+    var text = '';
 
     $(document).ready(function () {
       var cursor = document.getElementById('txt-cursor');
 
       // kick off with the writer
      setTimeout(writer, 75);
-
 
      // blinking cursor
      setInterval(function(){
@@ -86,19 +82,18 @@
         cursor.innerText = "|";
       }
      }, 250);
-
     });
 
     async function writer() {
       var occupation = document.getElementById('txt-occupation');
 
       // get header and letter of header from array
-      header = occupations[rando];
-      letter = header[letterPos];
+      text = occupations[textPos];
+      letter = text[letterPos];
 
       // if the letter position is less than the length and 
       // direction is set to write
-      if (letterPos < header.length && direction == 1) {
+      if (letterPos < text.length && direction == 1) {
 
         // write the letter to the text
         occupation.textContent += letter;
@@ -112,7 +107,7 @@
       // else, the full header is written, so wait
       else {
           // after 2 seconds, set write direction and discontinue waiting
-          await new Promise(r => setTimeout(r, 4000)).then(function () {
+          await new Promise(r => setTimeout(r, 5000)).then(function () {
 
             direction = -1;
 
@@ -137,11 +132,11 @@
 
           // reset letter position
           letterPos = 0;
-          var prevRando = rando;
+          var prevTextPos = textPos;
 
           // try to prevent a duplicate word
-          while(rando == prevRando){
-            rando = Math.floor(Math.random() * occupations.length);
+          while(textPos == prevTextPos){
+            textPos = Math.floor(Math.random() * occupations.length);
           }
 
           // headerPos = rando;
@@ -167,18 +162,15 @@
       <div class="row">
         <div class="col-lg-10 left">
           <h5 id=txt-greeting class='text-muted'>Hello! My name is Gary McKeever, and I am a</h5>
-          <span class='large'>></span><span id='txt-occupation' class='large'></span><span id='txt-cursor' class='large'>|</span>
+          &nbsp;</span><span id='txt-occupation' class='large'></span><span id='txt-cursor' class='large'>|</span>
           <p class='text-muted'>
             I do this thing where I do really cool things but they're not really cool because I do them.
           </p>
         </div>
         <div class='col-lg-2'>
-          <img class='me-large' src='./img/me.jpg'>
+            <img class='me-large' src='./img/me.jpg'>
         </div>
-
       </div>
-
-
 
       <hr class="my-5" />
       <section>
