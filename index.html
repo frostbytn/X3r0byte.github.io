@@ -60,15 +60,15 @@
   <script type="text/javascript">
 
     var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder', 'System Designer'];
-    var greeting = 'Hello! My name is Gary McKeever, and I am a';
+    // var greeting = 'Hello! My name is Gary McKeever, and I am a';
 
     var direction = 1;
     var letterPos = 0;
-    var headerPos = 0;
+    // var headerPos = 0;
     var header = '';
     var letter = '';
-    var rando = Math.floor(Math.random() * 5);
-    var occupation = document.getElementById('txt-occupation');
+    var rando = Math.floor(Math.random() * occupations.length);
+    // var occupation = document.getElementById('txt-occupation');
 
     $(document).ready(function () {
       var cursor = document.getElementById('txt-cursor');
@@ -89,7 +89,6 @@
 
     });
 
-
     async function writer() {
       var occupation = document.getElementById('txt-occupation');
 
@@ -97,21 +96,18 @@
       header = occupations[rando];
       letter = header[letterPos];
 
-      console.log(direction);
-
       // if the letter position is less than the length and 
       // direction is set to write
       if (letterPos < header.length && direction == 1) {
 
         // write the letter to the text
-        occupation.innerText += letter;
+        occupation.textContent += letter;
 
         // increment the position
         letterPos++;
 
         // 'recurse' or fire the timer again
         setTimeout(writer, 75);
-
       }
       // else, the full header is written, so wait
       else {
@@ -133,7 +129,7 @@
       if (direction == -1) {
 
         // slice off the last character and 'recurse'
-        occupation.innerText = occupation.innerText.slice(0, -1);
+        occupation.textContent = occupation.innerText.slice(0, -1);
         setTimeout(eraser, 50);
 
         // if there is no more text to erase
@@ -145,10 +141,10 @@
 
           // try to prevent a duplicate word
           while(rando == prevRando){
-            rando = Math.floor(Math.random() * 5);
+            rando = Math.floor(Math.random() * occupations.length);
           }
 
-          headerPos = rando;
+          // headerPos = rando;
           direction = 1;
 
           // kick off the writer again
@@ -176,7 +172,7 @@
             I do this thing where I do really cool things but they're not really cool because I do them.
           </p>
         </div>
-        <div class='col-lg-2 right'>
+        <div class='col-lg-2'>
           <img class='me-large' src='./img/me.jpg'>
         </div>
 
