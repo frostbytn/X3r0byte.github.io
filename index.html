@@ -67,22 +67,83 @@
     var letter = '';
     var text = '';
 
+
+    var _text = 'Hello! My name is Gary McKeever, and I am a';
+    var _pos = 0;
+
+    var message = 'I do this thing where I do really cool things but theyre not really cool because I do them.'
+    var messagePos = 0;
+
     $(document).ready(function () {
       var cursor = document.getElementById('txt-cursor');
 
-      // kick off with the writer
-     setTimeout(writer, 75);
+      setTimeout(writeGreeting, 30);
 
-     // blinking cursor
-     setInterval(function(){
-      if(cursor.innerText == "|"){
-        cursor.innerText = "";
-      }
-      else{
-        cursor.innerText = "|";
-      }
-     }, 250);
+      // blinking cursor
+      setInterval(function () {
+        if (cursor.innerText == "|") {
+          cursor.innerText = "";
+        }
+        else {
+          cursor.innerText = "|";
+        }
+      }, 250);
     });
+
+
+    function writeGreeting() {
+      var greeting = document.getElementById('txt-greeting');
+
+      // get header and letter of header from array
+      // text = occupations[textPos];
+      var _letter = _text[_pos];
+
+      // if the letter position is less than the length and 
+      // direction is set to write
+      if (_pos < _text.length) {
+
+        // write the letter to the text
+        greeting.textContent += _letter;
+
+        // increment the position
+        _pos++;
+
+        // 'recurse' or fire the timer again
+        setTimeout(writeGreeting, 30);
+      }
+      // else, the full header is written, so wait
+      else {
+        // kick off with the writer
+        setTimeout(writer, 50);
+      }
+    }
+
+
+    function writeMessage() {
+      var messageElement = document.getElementById('txt-message');
+
+      // get header and letter of header from array
+      // text = occupations[textPos];
+      var _letter = message[messagePos];
+
+      // if the letter position is less than the length and 
+      // direction is set to write
+      if (messagePos < message.length) {
+
+        // write the letter to the text
+        messageElement.textContent += _letter;
+
+        // increment the position
+        messagePos++;
+
+        // 'recurse' or fire the timer again
+        setTimeout(writeMessage, 10);
+      }
+      // else, the full header is written, so wait
+      else {
+
+      }
+    }
 
     async function writer() {
       var occupation = document.getElementById('txt-occupation');
@@ -102,18 +163,21 @@
         letterPos++;
 
         // 'recurse' or fire the timer again
-        setTimeout(writer, 75);
+        setTimeout(writer, 50);
       }
       // else, the full header is written, so wait
       else {
-          // after 2 seconds, set write direction and discontinue waiting
-          await new Promise(r => setTimeout(r, 5000)).then(function () {
 
-            direction = -1;
+        setTimeout(writeMessage, 10);
 
-            // erase the text
-            setTimeout(eraser, 50);
-         });
+        // after 2 seconds, set write direction and discontinue waiting
+        await new Promise(r => setTimeout(r, 5000)).then(function () {
+
+          direction = -1;
+
+          // erase the text
+          setTimeout(eraser, 50);
+        });
       }
     }
 
@@ -135,7 +199,7 @@
           var prevTextPos = textPos;
 
           // try to prevent a duplicate word
-          while(textPos == prevTextPos){
+          while (textPos == prevTextPos) {
             textPos = Math.floor(Math.random() * occupations.length);
           }
 
@@ -161,14 +225,14 @@
       <br>
       <div class="row">
         <div class="col-lg-10 left">
-          <h5 id=txt-greeting class='text-muted'>Hello! My name is Gary McKeever, and I am a</h5>
+          <h5 id='txt-greeting' class='text-muted'></h5>
           &nbsp;</span><span id='txt-occupation' class='large'></span><span id='txt-cursor' class='large'>|</span>
-          <p class='text-muted'>
-            I do this thing where I do really cool things but they're not really cool because I do them.
+          <p id='txt-message' class='text-muted'>
+            
           </p>
         </div>
         <div class='col-lg-2'>
-            <img class='me-large' src='./img/me.jpg'>
+          <img class='me-large' src='./img/me.jpg'>
         </div>
       </div>
 
