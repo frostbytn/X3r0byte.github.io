@@ -45,6 +45,9 @@
       class="btn btn-dark btn-floating btn-md space">
       <i class="fab fa-github"></i>
     </button>
+    <button type="button" onclick='resume();' class="btn btn-outline-info space">
+      Resume
+    </button>
   </span>
 </nav>
 
@@ -67,11 +70,10 @@
     var letter = '';
     var text = '';
 
-
     var _text = 'Hello! My name is Gary McKeever, and I am a';
     var _pos = 0;
 
-    var message = 'I do this thing where I do really cool things but theyre not really cool because I do them.'
+    var message = 'This is a work in progress! Click my resume link for my skill sets.'
     var messagePos = 0;
 
     $(document).ready(function () {
@@ -228,46 +230,29 @@
           <h5 id='txt-greeting' class='text-muted'></h5>
           &nbsp;</span><span id='txt-occupation' class='large'></span><span id='txt-cursor' class='large'>|</span>
           <p id='txt-message' class='text-muted'>
-            
           </p>
         </div>
         <div class='col-lg-2'>
           <img class='me-large' src='./img/me.jpg'>
         </div>
       </div>
-
+      <section>
+        <hr class="my-5" />
+        <h3 class="text-left"><strong>About Me </strong></h3>
+        <p class="small text-muted text-uppercase mb-2">
+        </p>
+        <p>Software developer with a diversified skill set going on 5 years of experience. Has a knack for
+          creative problem solving and quickly learning new frameworks and environments. Looking for an
+          opportunity to create unique and impacting solutions for today's problems.
+        </p>
       <hr class="my-5" />
+      </section>
       <section>
         <div class="text-center my-5">
           <!-- <h4><strong>Quick Cards</strong></h4> -->
         </div>
         <div class="row">
           <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card mb-4">
-              <div class="card-body">
-                <h5 class="card-title">Resume <i class="fas fa-briefcase"></i></h5>
-                <p class="card-text">
-                  For employment, here is my online resume. Please visit!
-                </p>
-                <button type="button" onclick='resume();' class="btn btn-outline-info">
-                  Go
-                </button>
-              </div>
-            </div>
-            <div class="card mb-3" style="max-width: 540px">
-              <div class="row g-0">
-                <div class="col-md-8">
-                  <div class="card-body">
-                    <h5 class="card-title">Something else</h5>
-                    <p class="card-text">
-                      something to fill in the future.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 mb-4">
             <div class="card">
               <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 <img src="./img/iceland/1.jpg" class="img-fluid" />
@@ -285,6 +270,23 @@
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4">
+            <!-- <div class="card">
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                <img src="./img/iceland/1.jpg" class="img-fluid" />
+                <a href="#!">
+                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+                </a>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Travels <i class="fas fa-globe-americas"></i></h5>
+                <p class="card-text">
+                  Here is a repository of my travels!
+                </p>
+                <a href="#!" class="btn btn-outline-info">Go</a>
+              </div>
+            </div> -->
+          </div>
+          <!-- <div class="col-lg-4 col-md-6 mb-4">
             <div class="card text-center mb-4">
               <div class="card-header bg-white">Featured</div>
               <div class="card-body">
@@ -295,21 +297,17 @@
                 <a href="#" class="btn btn-outline-info">go</a>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </section>
     <hr>
   </div>
 </body>
-
 <br>
 <footer class="bg-dark text-white">
-  <!-- Grid container -->
-  <div class="container p-4">
-    <!--Grid row-->
+  <!-- <div class="container p-4">
     <div class="row">
-      <!--Grid column-->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase">Footer Content</h5>
         <p>
@@ -319,9 +317,6 @@
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 
       </div>
-      <!--Grid column-->
-
-      <!--Grid column-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Links</h5>
 
@@ -340,13 +335,9 @@
           </li>
         </ul>
       </div>
-      <!--Grid column-->
     </div>
-    <!--Grid row-->
-  </div>
-  <!-- Grid container -->
+  </div> -->
 
-  <!-- Copyright -->
   <div class="text-center p-3" style="
       background-color: rgba(0, 0, 0, 0.2);
       color: rgba(255, 255, 255, 0.6);
