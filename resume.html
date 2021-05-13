@@ -8,18 +8,14 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Gary</title>
-  <!-- MDB icon -->
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <!-- Dark MDB theme -->
+  <link rel="stylesheet" href="./font-awesome/css/all.css">
   <link rel="stylesheet" href="css/mdb.dark.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Regular MDB theme -->
-  <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <title>Gary</title>
 </head>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
   <!-- <a class="navbar-brand" href="#">Root</a> -->
@@ -37,13 +33,20 @@
   </div>
 
   <span class="right">
-    <button type="button" onclick="window.open('mailto:shephard@frostbytn.com')"  class="btn btn-dark btn-md btn-floating space">
+    <button type="button" onclick="window.open('mailto:shephard@frostbytn.com')"
+      class="btn btn-dark btn-md btn-floating space">
       <i class="fas fa-envelope"></i>
-      </button>
-    <button type="button" onclick="window.open('https://www.linkedin.com/in/gmckeever-88/');"  class="btn btn-dark btn-floating btn-md space">
+    </button>
+    <button type="button" onclick="window.open('https://www.reddit.com/user/x3r0byte')"
+      class="btn btn-dark btn-md btn-floating space">
+      <i class="fab fa-reddit-alien"></i>
+    </button>
+    <button type="button" onclick="window.open('https://www.linkedin.com/in/gmckeever-88/');"
+      class="btn btn-dark btn-floating btn-md space">
       <i class="fab fa-linkedin"></i>
     </button>
-    <button type="button" onclick="window.open('https://github.com/X3r0byte');" class="btn btn-dark btn-floating btn-md space">
+    <button type="button" onclick="window.open('https://github.com/X3r0byte');"
+      class="btn btn-dark btn-floating btn-md space">
       <i class="fab fa-github"></i>
     </button>
     <button type="button" onclick='resume();' class="btn btn-outline-info space">
@@ -82,9 +85,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#education">Education</a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="#portfolio">Portfolio</a>
-              </li>
+              </li> -->
               <li class="nav-item">
                 <a class="nav-link" href="#skills">Skills</a>
               </li>
@@ -357,146 +360,7 @@
               </div>
               <!--Grid row-->
             </section>
-
             <hr class="my-5" />
-            <section id='portfolio'>
-              <div class="text-left my-5">
-                <h3 class="text-left"><strong>Portfolio <i class="fas fa-folder-open"></i></strong></h3>
-                <p class="small text-muted text-uppercase mb-2">
-                  Apps, Projects, and other items
-                </p>
-              </div>
-              <!--Grid row-->
-              <div class="row">
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Vexlus <a href=""><i class="fas fa-link"></i></a></h5>
-
-                      <p class="card-text">
-                        Vexlus, a mashup of visualizing text as a vector nexus, is my current SaaS project. Instead
-                        simple word counts, Vexlus
-                        uses keyword and NER APIs to extract topics from any text. Then, it uses a custom scoring
-                        technique to relate the topics,
-                        creating a clustering effect. This effect creates a soft relationship within the text, allowing
-                        a user to visualize many rows
-                        of text entries in a unique way that can bring out patterns buried within.
-
-                      </p>
-                      <a href='./img/vexlus-relativity.gif'> <img class='image' src='./img/vexlus-relativity.gif'
-                          href='./img/vexlus-relativity.gif'></a>
-                    </div>
-                  </div>
-                </div>
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Synchronizer <a href="https://github.com/X3r0byte/Synchronizer"><i
-                            class="fas fa-link"></i></a></h5>
-                      <p class="card-text">
-                        Synchronizer extends Microsoft's Sync Framework to allow local databases to go remote, and
-                        resync with the server at a later time.
-                        The app is designed to address issues with foreign key relationships within auto numbering
-                        referential databases. Integrity is maintained
-                        through Sync Framework tracking tables, row versioning, and custom triggers defined in the
-                        class.
-                      </p>
-                      <a href='./img/sync.gif'> <img class='image' src='./img/sync.gif' href='./img/sync.gif'></a>
-
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Grid column
-                <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Project X <a href=""><i class="fas fa-link"></i></a></h5>
-                      <p class="card-text">
-                        content here.
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">RaspiBot <a href="https://github.com/X3r0byte/raspibot"><i
-                            class="fas fa-link"></i></a></h5>
-                      <p class="card-text">
-                        RasiBot is an autonomous robot that used a sacrificed webcam and a few ultrasonic sensors to
-                        follow colors. Although
-                        the bot has been retired, it's code lives on in the repo linked above.
-                        I used OpenCV to detect colors within the frame. Each frame gets iterated over, and each pixel
-                        is looked at to see if it
-                        matches the color to follow. After the frame is processed, it averages the found (x,y), and
-                        tells the bot which way to go.
-                      </p>
-                      <a href='./img/raspi.gif'> <img class='image' src='./img/raspi.gif' href='./img/raspi.gif'></a>
-
-                    </div>
-                  </div>
-                </div>
-                <!--Grid column-->
-                <!-- <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">Data Analytics <a href=""><i class="fas fa-link"></i></a></h5>
-                      <p class="card-text">
-                        content here.
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
-                <!--Grid column-->
-                <!-- <div class="col-lg-4 col-md-12 mb-4">
-                  <div class="card mb-4">
-                    <div class="card-body">
-                      <h5 class="card-title">ML.NET Boilerplate <a href=""><i class="fas fa-link"></i></a></h5>
-                      <p class="card-text">
-                        content here.
-                      </p>
-                    </div>
-                  </div>
-                </div> -->
-            </section>
-            <hr class="my-5" />
-
-
-            <!-- <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td colspan="2">Larry the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table> -->
-
             <section id='skills'>
               <div class="text-left my-5">
                 <h3 class="text-left"><strong>Skills <i class="fas fa-hand-sparkles"></i></strong></h3>
@@ -617,7 +481,7 @@
                 </div>
             </section>
             <hr class="my-5" />
-           <section id='interests'>
+            <section id='interests'>
               <h3 class="text-left"><strong>Interests <i class="far fa-lightbulb"></i></strong></h3>
               <p class="small text-muted text-uppercase mb-2">
                 Personal interests and such
@@ -637,7 +501,7 @@
                 <span class='pill interest'>Woodworking <i class="fas fa-hammer"></i></span>
               </p>
             </section>
-            <hr class="my-5" /> 
+            <hr class="my-5" />
             <p class='left text-muted'>
               Avatar photo credit: <a href='https://herbergphotography.com/'>Herberg Photography</a>
             </p>
@@ -647,4 +511,5 @@
     </section>
   </div>
 </body>
+
 </html>

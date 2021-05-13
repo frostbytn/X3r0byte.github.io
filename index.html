@@ -8,34 +8,34 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <title>Gary</title>
-  <!-- MDB icon -->
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
-  <!-- Google Fonts Roboto -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" />
-  <!-- Dark MDB theme -->
+  <link rel="stylesheet" href="./font-awesome/css/all.css">
   <link rel="stylesheet" href="css/mdb.dark.min.css" />
   <link rel="stylesheet" href="css/style.css" />
-  <!-- Regular MDB theme -->
-  <!-- <link rel="stylesheet" href="css/mdb.min.css" /> -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="./js/jquery.js"></script>
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" /> -->
+  <title>Gary</title>
 </head>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-  <!-- <a class="navbar-brand" href="#">Root</a> -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
     aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="./index.html">Home<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="./index.html">Home</a>
     </div>
   </div>
   <span class="right">
     <button type="button" onclick="window.open('mailto:shephard@frostbytn.com')"
       class="btn btn-dark btn-md btn-floating space">
       <i class="fas fa-envelope"></i>
+    </button>
+    <button type="button" onclick="window.open('https://www.reddit.com/user/x3r0byte')"
+      class="btn btn-dark btn-md btn-floating space">
+      <i class="fab fa-reddit-alien"></i>
     </button>
     <button type="button" onclick="window.open('https://www.linkedin.com/in/gmckeever-88/');"
       class="btn btn-dark btn-floating btn-md space">
@@ -51,18 +51,12 @@
   </span>
 </nav>
 
-<body>
-  <!-- MDB -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
-  <!-- custom js -->
-  <script type="text/javascript" src="js/script.js"></script>
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<body style="background-image: url('./img/background-medium.png'); background-repeat: no-repeat; background-attachment: fixed;">
   <!-- Custom scripts -->
   <script type="text/javascript">
 
-    var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder', 'System Designer'];
+    var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder',
+      'System Designer', 'Full-Stack Developer', 'Database Developer', 'Hacker'];
 
     var direction = 1;
     var letterPos = 0;
@@ -73,7 +67,8 @@
     var _text = 'Hello! My name is Gary McKeever, and I am a';
     var _pos = 0;
 
-    var message = 'This is a work in progress! Click my resume link for my skill sets.'
+    var message = 'Based in Minnesota with over 4 years of professional experience in database, desktop, and web development. Currently, ' +
+      'I build full stack solutions custom tailored to my company and its clients. I also try to play guitar when I get the chance! 🎸🤘  '
     var messagePos = 0;
 
     $(document).ready(function () {
@@ -120,7 +115,6 @@
       }
     }
 
-
     function writeMessage() {
       var messageElement = document.getElementById('txt-message');
 
@@ -139,7 +133,7 @@
         messagePos++;
 
         // 'recurse' or fire the timer again
-        setTimeout(writeMessage, 10);
+        setTimeout(writeMessage, 15);
       }
       // else, the full header is written, so wait
       else {
@@ -213,95 +207,215 @@
         }
       }
     }
-
-
   </script>
   <div class="container">
-    <br> <br> <br>
+    <div class='break'>
+      <br>
+    </div>
     <section>
-      <br>
-      <!-- <h2 class="text-center"><strong>Home</strong></h2> -->
-      <div class="text-center">
-        <!-- <hr> -->
-      </div>
-      <br>
       <div class="row">
         <div class="col-lg-10 left">
-          <h5 id='txt-greeting' class='text-muted'></h5>
-          &nbsp;</span><span id='txt-occupation' class='large'></span><span id='txt-cursor' class='large'>|</span>
-          <p id='txt-message' class='text-muted'>
+          <h5 id='txt-greeting' class='shadow-text'></h5>
+          &nbsp;</span><span id='txt-occupation' class='large shadow-shift'></span><span id='txt-cursor'
+            class='large cursor'>|</span>
+          <p id='txt-message' class='shadow-text' >
+
           </p>
+          <!-- <img src="http://ghchart.rshah.org/404040/X3r0byte" alt="GitHub chart" /> -->
         </div>
         <div class='col-lg-2'>
-          <img class='me-large' src='./img/me.jpg'>
+          <img class='me-large center' src='./img/me.jpg'>
         </div>
       </div>
       <section>
-        <hr class="my-5" />
-        <h3 class="text-left"><strong>About Me </strong></h3>
-        <p class="small text-muted text-uppercase mb-2">
-        </p>
-        <p>Software developer with a diversified skill set going on 5 years of experience. Has a knack for
-          creative problem solving and quickly learning new frameworks and environments. Looking for an
-          opportunity to create unique and impacting solutions for today's problems.
-        </p>
-      <hr class="my-5" />
+        <button type="button" onclick="window.location = './index.html#contact'" class="btn btn-outline-info space">
+          Contact
+        </button>
+        <!-- <hr class="my-5" /> -->
+        <div class='break'>
+          <br>
+        </div>
+        <h3 class="text-left"><strong>A little about me </strong><i class="fas fa-meteor"></i></h3>
+        <br>
+        <!--Grid row-->
+        <div class="row">
+
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="card mb-3">
+              <div class="card-body">
+                <p class='semi-muted'>
+                  My interest in computers is long-standing. As a kid, I would
+                  alter game code, tinker with robotics, and pour through my game development
+                  book in C++. After some years of self search, I went back to academia at the age of 26
+                  to start and finish a Bachelor's in Computer Science!
+                </p>
+                <p class='semi-muted'>
+                  Today, I am working at an engineering firm developing systems for my company and our clients.
+                  I maintain the software that I have written, and solve new problems with new full stack solutions,
+                  both web and desktop.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-6 col-md-12 mb-4">
+            <div class="card mb-3">
+              <div class="card-body">
+                <p class='semi-muted'>
+                  Currently, I am:
+                <div class='row'>
+                  <div class='col-md-6'>
+                    <ul>
+                      <li class='semi-muted'>
+                        learning Azure Cloud deployment
+                      </li>
+                      <li class='semi-muted'>
+                        developing pipeline CI / CD
+                      </li>
+                      <li class='semi-muted'>
+                        building a text analysis SaaS
+                      </li>
+                    </ul>
+                  </div>
+                  <div class='col-md-6'>
+                    <ul>
+                      <li class='semi-muted'>
+                        creating a data analysis app
+                      </li>
+                      <li class='semi-muted'>
+                        maintaining my custom ERP
+                      </li>
+                      <li class='semi-muted'>
+                        developing desktop and web GIS
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class='break'>
+            <br>
+          </div>
       </section>
       <section>
-        <div class="text-center my-5">
-          <!-- <h4><strong>Quick Cards</strong></h4> -->
+        <div class="text-left">
+          <h3 class="text-left"><strong>Some things I have made <i class="fas fa-folder-open"></i></strong></h3>
+          <!-- <p class="small text-muted text-uppercase mb-2">
+            Apps, Projects, and other items
+          </p> -->
+          <p class='shadow-text'>
+            Here are a few personal projects I have worked on. Much of my development is confidential,
+            so unfortunately it can't be listed here. However, you can <a href='./index.html#contact'>contact</a> me if you 
+            want to know general information about that work!
+          </p>
+          <br>
         </div>
+        <!--Grid row-->
         <div class="row">
+          <!--Grid column-->
           <div class="col-lg-4 col-md-12 mb-4">
-            <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="./img/iceland/1.jpg" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                </a>
-              </div>
+            <div class="card mb-4">
               <div class="card-body">
-                <h5 class="card-title">Travels <i class="fas fa-globe-americas"></i></h5>
-                <p class="card-text">
-                  Here is a repository of my travels!
+                <h5 class="card-title">Vexlus - work in progress! <a href=""><i class="fas fa-link"></i></a></h5>
+
+                <p class="semi-muted">
+                  Vexlus uses NER to extract meaningful data and a custom relation solution to map unstructured text into a graph.
                 </p>
-                <a href="#!" class="btn btn-outline-info">Go</a>
+                <a href='./img/vexlus-relativity.gif'> <img class='image' src='./img/vexlus-relativity.gif'
+                    href='./img/vexlus-relativity.gif'></a>
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6 mb-4">
-            <!-- <div class="card">
-              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                <img src="./img/iceland/1.jpg" class="img-fluid" />
-                <a href="#!">
-                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
-                </a>
-              </div>
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card mb-4">
               <div class="card-body">
-                <h5 class="card-title">Travels <i class="fas fa-globe-americas"></i></h5>
-                <p class="card-text">
-                  Here is a repository of my travels!
+                <h5 class="card-title">Synchronizer <a href="https://github.com/X3r0byte/Synchronizer/blob/master/MetroTemplate/Synchronizer.cs"><i
+                      class="fas fa-link"></i></a></h5>
+                <p class="semi-muted">
+                  Synchronizer extends Microsoft's Sync Framework to allow local databases to go remote, and
+                  resync with the server at a later time.
                 </p>
-                <a href="#!" class="btn btn-outline-info">Go</a>
-              </div>
-            </div> -->
-          </div>
-          <!-- <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card text-center mb-4">
-              <div class="card-header bg-white">Featured</div>
-              <div class="card-body">
-                <h5 class="card-title">Projects</h5>
-                <p class="card-text">
-                  Here is a repository of my projects.
-                </p>
-                <a href="#" class="btn btn-outline-info">go</a>
+                <a href='./img/sync.gif'> <img class='image' src='./img/sync.gif' href='./img/sync.gif'></a>
               </div>
             </div>
-          </div> -->
-        </div>
+          </div>
+          <!--Grid column-->
+          <div class="col-lg-4 col-md-12 mb-4">
+            <div class="card mb-4">
+              <div class="card-body">
+                <h5 class="card-title">RaspiBot <a href="https://github.com/X3r0byte/raspibot"><i
+                      class="fas fa-link"></i></a></h5>
+                <p class="semi-muted">
+                  RasiBot is an autonomous robot that used a sacrificed webcam and a few ultrasonic sensors to
+                  follow colors. Although
+                  the bot has been retired, it's code lives on in the repo linked above.
+                </p>
+                <a href='./img/raspi.gif'> <img class='image' src='./img/raspi.gif' href='./img/raspi.gif'></a>
+
+              </div>
+            </div>
+          </div>
+          <img src="http://ghchart.rshah.org/404040/X3r0byte" class='fit' alt="GitHub chart" />
       </section>
     </section>
-    <hr>
+    <div class='break'>
+      <br>
+    </div>
+    <section>
+      <div id='contact' class="col-md-12 mb-4">
+        <h3 class="text-left"><strong>Contact </strong></h3>
+        <p class='shadow-text'>I am currently accepting any opportunity or challenge available! Feel free to get in touch
+          - I will respond
+          as soon as possible 😎
+        </p>
+        <br>
+        <form>
+          <!-- Name input -->
+          <div class="form-outline mb-4">
+            <input type="text" id="form4Example1" class="form-control" autocomplete="off" />
+            <label class="form-label" for="form4Example1" style="margin-left: 0px">Name</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px"></div>
+              <div class="form-notch-middle" style="width: 42.4px"></div>
+              <div class="form-notch-trailing"></div>
+            </div>
+          </div>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form4Example2" class="form-control" autocomplete="off" />
+            <label class="form-label" for="form4Example2" style="margin-left: 0px">Email address</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px"></div>
+              <div class="form-notch-middle" style="width: 88.8px"></div>
+              <div class="form-notch-trailing"></div>
+            </div>
+          </div>
+
+          <!-- Message input -->
+          <div class="form-outline mb-4">
+            <textarea class="form-control" id="form4Example3" rows="4"></textarea>
+            <label class="form-label" for="form4Example3" style="margin-left: 0px">Message</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px"></div>
+              <div class="form-notch-middle" style="width: 60px"></div>
+              <div class="form-notch-trailing"></div>
+            </div>
+          </div>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-outline-info space" class="btn btn-primary btn-block mb-4">
+            Send
+          </button>
+        </form>
+      </div>
+    </section>
+    <div class='break'>
+      <br>
+    </div>
   </div>
 </body>
 <br>

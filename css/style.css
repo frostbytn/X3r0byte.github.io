@@ -135,3 +135,40 @@
 .italics{
   font-style: italic;
 }
+
+.cursor{
+  position: absolute;
+}
+
+.center {
+  margin-left: 14%;
+}
+
+.semi-muted{
+  color:rgb(212, 212, 212);
+}
+
+.fit{
+  margin: 15px;
+}
+
+.break{
+  line-height:35vh;
+}
+.shadow-text{
+  text-shadow: 1px 1px 2px rgb(32, 32, 32);
+}
+
+.shadow-shift{
+  text-shadow: 7px 3px 0px #e962b3;
+}
+
+body{
+  background-image: url('./img/Untitlsed.png');
+}
+
+@media only screen and (max-width: 1000px) {
+  .break {
+    line-height:15vh;
+  }
+}
