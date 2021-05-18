@@ -149,7 +149,9 @@
 }
 
 .fit{
-  margin: 15px;
+  /* margin: 15px;
+  margin-left: -15px; */
+  
 }
 
 .break{
@@ -160,7 +162,7 @@
 }
 
 .shadow-shift{
-  text-shadow: 7px 3px 0px #e962b3;
+  /* text-shadow: 7px 3px 0px rgb(32, 32, 32); */
 }
 
 body{

@@ -15,6 +15,11 @@
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
   <script src="./js/jquery.js"></script>
+  <script src="TemplateData/UnityProgress.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json", { onProgress: UnityProgress });
+  </script>
   <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" /> -->
   <title>Gary</title>
 </head>
@@ -51,12 +56,13 @@
   </span>
 </nav>
 
-<body style="background-image: url('./img/background-medium.png'); background-repeat: no-repeat; background-attachment: fixed;">
+<body
+  style="background-image: url('./img/background-medium.png'); background-repeat: no-repeat; background-attachment: fixed;">
   <!-- Custom scripts -->
   <script type="text/javascript">
 
     var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder',
-      'System Designer', 'Full-Stack Developer', 'Database Developer', 'Hacker'];
+      'System Designer', 'Full Stack Developer', 'Database Developer', 'Hacker'];
 
     var direction = 1;
     var letterPos = 0;
@@ -213,24 +219,25 @@
       <br>
     </div>
     <section>
-      <div class="row">
-        <div class="col-lg-10 left">
-          <h5 id='txt-greeting' class='shadow-text'></h5>
-          &nbsp;</span><span id='txt-occupation' class='large shadow-shift'></span><span id='txt-cursor'
-            class='large cursor'>|</span>
-          <p id='txt-message' class='shadow-text' >
-
-          </p>
-          <!-- <img src="http://ghchart.rshah.org/404040/X3r0byte" alt="GitHub chart" /> -->
-        </div>
-        <div class='col-lg-2'>
-          <img class='me-large center' src='./img/me.jpg'>
-        </div>
-      </div>
       <section>
+        <div class="row">
+          <div class="col-lg-10 left" style='height: 470px;'>
+            <h5 id='txt-greeting' class='shadow-text'></h5>
+            &nbsp;</span><span id='txt-occupation' class='large shadow-shift'></span><span id='txt-cursor'
+              class='large cursor'>|</span>
+            <p id='txt-message' class='shadow-text'>
+            </p>
+          </div>
+          <div class='col-lg-2'>
+            <img class='me-large center' src='./img/me.jpg'>
+          </div>
+        </div>
         <button type="button" onclick="window.location = './index.html#contact'" class="btn btn-outline-info space">
           Contact
         </button>
+      </section>
+
+      <section>
         <!-- <hr class="my-5" /> -->
         <div class='break'>
           <br>
@@ -252,8 +259,8 @@
                 </p>
                 <p class='semi-muted'>
                   Today, I am working at an engineering firm developing systems for my company and our clients.
-                  I maintain the software that I have written, and solve new problems with new full stack solutions,
-                  both web and desktop.
+                  I maintain the software that I have written which drives business and data visualization, and solve
+                  new problems with new solutions from database, to desktop, to web.
                 </p>
               </div>
             </div>
@@ -308,7 +315,8 @@
           </p> -->
           <p class='shadow-text'>
             Here are a few personal projects I have worked on. Much of my development is confidential,
-            so unfortunately it can't be listed here. However, you can <a href='./index.html#contact'>contact</a> me if you 
+            so unfortunately it can't be listed here. However, you can <a href='./index.html#contact'>contact</a> me if
+            you
             want to know general information about that work!
           </p>
           <br>
@@ -322,7 +330,8 @@
                 <h5 class="card-title">Vexlus - work in progress! <a href=""><i class="fas fa-link"></i></a></h5>
 
                 <p class="semi-muted">
-                  Vexlus uses NER to extract meaningful data and a custom relation solution to map unstructured text into a graph.
+                  Vexlus uses NER to extract meaningful data and a custom relation solution to map unstructured text
+                  into a graph.
                 </p>
                 <a href='./img/vexlus-relativity.gif'> <img class='image' src='./img/vexlus-relativity.gif'
                     href='./img/vexlus-relativity.gif'></a>
@@ -333,7 +342,8 @@
           <div class="col-lg-4 col-md-12 mb-4">
             <div class="card mb-4">
               <div class="card-body">
-                <h5 class="card-title">Synchronizer <a href="https://github.com/X3r0byte/Synchronizer/blob/master/MetroTemplate/Synchronizer.cs"><i
+                <h5 class="card-title">Synchronizer <a
+                    href="https://github.com/X3r0byte/Synchronizer/blob/master/MetroTemplate/Synchronizer.cs"><i
                       class="fas fa-link"></i></a></h5>
                 <p class="semi-muted">
                   Synchronizer extends Microsoft's Sync Framework to allow local databases to go remote, and
@@ -355,10 +365,44 @@
                   the bot has been retired, it's code lives on in the repo linked above.
                 </p>
                 <a href='./img/raspi.gif'> <img class='image' src='./img/raspi.gif' href='./img/raspi.gif'></a>
-
               </div>
             </div>
           </div>
+          <div class='break'>
+            <br>
+          </div>
+          <div class="col-lg-12 col-md-12 mb-12">
+            <div class="card mb-12">
+              <div class="card-body">
+                <h5 class="card-title">ASTR <a href="https://github.com/X3r0byte/ASTR"><i class="fas fa-link"></i></a>
+
+                  <button type="button" class="btn btn-outline-info space" data-mdb-toggle="modal"
+                    data-mdb-target="#exampleModal">
+                    Info
+                  </button>
+
+                  <button type="button" onclick="gameInstance.SetFullscreen(1)"
+                    class="btn btn-outline-info space right">
+                    Fullscreen
+                  </button>
+                </h5>
+                <p class="semi-muted">
+                  ASTR - a mashup of Asteroids and Lander - is a Unity project. The core of the game is
+                  my <a href='https://github.com/X3r0byte/ASTR/blob/main/Gravitizer.cs'>Gravitizer</a> script, which
+                  adds a physics challenge to landing on celestials like Lander to the gameplay of Asteroids. My next
+                  step is to add mining the asteroids for fuel!
+                </p>
+                <div class="webgl-content">
+                  <div id="gameContainer" style="width: 100%; height: 100%"></div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class='break'>
+            <br>
+          </div>
+          <h3 class="text-left"><strong>GitHub Activity <i class="fab fa-github"></i></strong></h3>
           <img src="http://ghchart.rshah.org/404040/X3r0byte" class='fit' alt="GitHub chart" />
       </section>
     </section>
@@ -367,10 +411,9 @@
     </div>
     <section>
       <div id='contact' class="col-md-12 mb-4">
-        <h3 class="text-left"><strong>Contact </strong></h3>
-        <p class='shadow-text'>I am currently accepting any opportunity or challenge available! Feel free to get in touch
-          - I will respond
-          as soon as possible 😎
+        <h3 class="text-left"><strong>Contact me </strong><i class="fas fa-envelope"></i></h3>
+        <p class='shadow-text'>I am currently accepting any opportunities available! Please get in touch with any
+          inquiries, employment, or if you just want to say hello.
         </p>
         <br>
         <form>
@@ -451,6 +494,53 @@
       </div>
     </div>
   </div> -->
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            ASTR
+          </h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <h5>Intro</h5>
+          <p>
+            Your ship is stranded in space. Asteroids and celestials drift around you, as you
+            use a dwindling ammo and fuel supply to nagivate the void. Watch your grav, velocity, and acceleration
+            indicators closely to
+            make sure your ship doesn't end up as wreckage amongst the stars.
+          </p>
+
+          <h5>Notes</h5>
+          <p>
+            This is a constant work in progress! Currently only controls, asteroid loot drops, and general gravity
+            mechanics are working. To say it's an alpha is an understatement :)
+          </p>
+
+          <h5>Controls</h5>
+          <ul>
+            <li>
+              Movement: WASD or L/R softkeys
+            </li>
+            <li>
+              Shoot: click or large softkey
+            </li>
+            <li>
+              Mine: small softkey (not implemented yet)
+            </li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="text-center p-3" style="
       background-color: rgba(0, 0, 0, 0.2);
