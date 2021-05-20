@@ -17,10 +17,9 @@
   <script src="./js/jquery.js"></script>
   <script src="TemplateData/UnityProgress.js"></script>
   <script src="Build/UnityLoader.js"></script>
-  <script>
-    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json", { onProgress: UnityProgress });
+  <script type="text/javascript" src="./js/emailjs.js"></script>
+  <script type="text/javascript">
   </script>
-  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" /> -->
   <title>Gary</title>
 </head>
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -57,12 +56,14 @@
 </nav>
 
 <body
-  style="background-image: url('./img/background-medium.png'); background-repeat: no-repeat; background-attachment: fixed;">
+  style="background-image: url('./img/background-medium-min.png'); background-repeat: no-repeat; background-attachment: fixed;">
   <!-- Custom scripts -->
   <script type="text/javascript">
 
     var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder',
       'System Designer', 'Full Stack Developer', 'Database Developer', 'Hacker'];
+
+    var gameInstance;
 
     var direction = 1;
     var letterPos = 0;
@@ -78,6 +79,7 @@
     var messagePos = 0;
 
     $(document).ready(function () {
+
       var cursor = document.getElementById('txt-cursor');
 
       setTimeout(writeGreeting, 30);
@@ -92,7 +94,6 @@
         }
       }, 250);
     });
-
 
     function writeGreeting() {
       var greeting = document.getElementById('txt-greeting');
@@ -333,8 +334,9 @@
                   Vexlus uses NER to extract meaningful data and a custom relation solution to map unstructured text
                   into a graph.
                 </p>
-                <a href='./img/vexlus-relativity.gif'> <img class='image' src='./img/vexlus-relativity.gif'
-                    href='./img/vexlus-relativity.gif'></a>
+                <a href='./img/vexlus-relativity.gif'> <img class='image'
+                    onmouseover="this.src='./img/vexlus-relativity.gif'" onmouseout="this.src='./img/vexlus.png'"
+                    src='./img/vexlus.png' href='./img/vexlus-relativity.gif'></a>
               </div>
             </div>
           </div>
@@ -349,7 +351,9 @@
                   Synchronizer extends Microsoft's Sync Framework to allow local databases to go remote, and
                   resync with the server at a later time.
                 </p>
-                <a href='./img/sync.gif'> <img class='image' src='./img/sync.gif' href='./img/sync.gif'></a>
+                <a href='./img/sync.gif'> <img class='image' onmouseover="this.src='./img/sync.gif'"
+                    onmouseout="this.src='./img/raspi.png'" src='./img/synchronizer.png' src='./img/synchronizer.png'
+                    href='./img/sync.gif'></a>
               </div>
             </div>
           </div>
@@ -364,7 +368,8 @@
                   follow colors. Although
                   the bot has been retired, it's code lives on in the repo linked above.
                 </p>
-                <a href='./img/raspi.gif'> <img class='image' src='./img/raspi.gif' href='./img/raspi.gif'></a>
+                <a href='./img/raspi.gif'> <img class='image' onmouseover="this.src='./img/raspi.gif'"
+                    onmouseout="this.src='./img/raspi.png'" src='./img/raspi.png' href='./img/raspi.gif'></a>
               </div>
             </div>
           </div>
@@ -375,25 +380,23 @@
             <div class="card mb-12">
               <div class="card-body">
                 <h5 class="card-title">ASTR <a href="https://github.com/X3r0byte/ASTR"><i class="fas fa-link"></i></a>
-
-                  <button type="button" class="btn btn-outline-info space" data-mdb-toggle="modal"
-                    data-mdb-target="#exampleModal">
-                    Info
-                  </button>
-
-                  <button type="button" onclick="gameInstance.SetFullscreen(1)"
-                    class="btn btn-outline-info space right">
+                  <button type="button" onclick="fullscreen()" class="btn btn-outline-info space right">
                     Fullscreen
                   </button>
                 </h5>
                 <p class="semi-muted">
-                  ASTR - a mashup of Asteroids and Lander - is a Unity project. The core of the game is
-                  my <a href='https://github.com/X3r0byte/ASTR/blob/main/Gravitizer.cs'>Gravitizer</a> script, which
-                  adds a physics challenge to landing on celestials like Lander to the gameplay of Asteroids. My next
-                  step is to add mining the asteroids for fuel!
+
                 </p>
                 <div class="webgl-content">
-                  <div id="gameContainer" style="width: 100%; height: 100%"></div>
+                  <div id="gameContainer" class='game-container' style="width: 100%; height: 100%"><img class='image'
+                      src='./img/astr.PNG'>
+                    <div class="middle">
+                      <div> <button onclick='loadASTR()' type="button" class="btn btn-outline-info space"
+                          data-mdb-toggle="modal" data-mdb-target="#exampleModal">
+                          Play
+                        </button></div>
+                    </div>
+                  </div>
 
                 </div>
               </div>
@@ -416,44 +419,43 @@
           inquiries, employment, or if you just want to say hello.
         </p>
         <br>
-        <form>
-          <!-- Name input -->
-          <div class="form-outline mb-4">
-            <input type="text" id="form4Example1" class="form-control" autocomplete="off" />
-            <label class="form-label" for="form4Example1" style="margin-left: 0px">Name</label>
-            <div class="form-notch">
-              <div class="form-notch-leading" style="width: 9px"></div>
-              <div class="form-notch-middle" style="width: 42.4px"></div>
-              <div class="form-notch-trailing"></div>
-            </div>
+        <!-- Name input -->
+        <div class="form-outline mb-4">
+          <input type="text" id="contact-from" class="form-control" autocomplete="off" />
+          <label class="form-label" for="form4Example1" style="margin-left: 0px">Name</label>
+          <div class="form-notch">
+            <div class="form-notch-leading" style="width: 9px"></div>
+            <div class="form-notch-middle" style="width: 42.4px"></div>
+            <div class="form-notch-trailing"></div>
           </div>
+        </div>
 
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <input type="email" id="form4Example2" class="form-control" autocomplete="off" />
-            <label class="form-label" for="form4Example2" style="margin-left: 0px">Email address</label>
-            <div class="form-notch">
-              <div class="form-notch-leading" style="width: 9px"></div>
-              <div class="form-notch-middle" style="width: 88.8px"></div>
-              <div class="form-notch-trailing"></div>
-            </div>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="email" id="contact-email" class="form-control" autocomplete="off" />
+          <label class="form-label" for="form4Example2" style="margin-left: 0px">Email address</label>
+          <div class="form-notch">
+            <div class="form-notch-leading" style="width: 9px"></div>
+            <div class="form-notch-middle" style="width: 88.8px"></div>
+            <div class="form-notch-trailing"></div>
           </div>
+        </div>
 
-          <!-- Message input -->
-          <div class="form-outline mb-4">
-            <textarea class="form-control" id="form4Example3" rows="4"></textarea>
-            <label class="form-label" for="form4Example3" style="margin-left: 0px">Message</label>
-            <div class="form-notch">
-              <div class="form-notch-leading" style="width: 9px"></div>
-              <div class="form-notch-middle" style="width: 60px"></div>
-              <div class="form-notch-trailing"></div>
-            </div>
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <textarea class="form-control" id="contact-message" rows="4"></textarea>
+          <label class="form-label" for="form4Example3" style="margin-left: 0px">Message</label>
+          <div class="form-notch">
+            <div class="form-notch-leading" style="width: 9px"></div>
+            <div class="form-notch-middle" style="width: 60px"></div>
+            <div class="form-notch-trailing"></div>
           </div>
-          <!-- Submit button -->
-          <button type="submit" class="btn btn-outline-info space" class="btn btn-primary btn-block mb-4">
-            Send
-          </button>
-        </form>
+        </div>
+        <!-- Submit button -->
+        <button onclick='sendMessage();' data-mdb-toggle="modal" data-mdb-target="#contactModal"
+          class="btn btn-outline-info space">
+          Send
+        </button>
       </div>
     </section>
     <div class='break'>
@@ -463,38 +465,6 @@
 </body>
 <br>
 <footer class="bg-dark text-white">
-  <!-- <div class="container p-4">
-    <div class="row">
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Footer Content</h5>
-        <p>
-          content here.
-        </p>
-      </div>
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-
-      </div>
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-        <h5 class="text-uppercase">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!" class="text-white">Link 1</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-white">Link 4</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
-
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -507,21 +477,20 @@
         <div class="modal-body">
 
           <h5>Intro</h5>
-          <p>
-            Your ship is stranded in space. Asteroids and celestials drift around you, as you
-            use a dwindling ammo and fuel supply to nagivate the void. Watch your grav, velocity, and acceleration
-            indicators closely to
-            make sure your ship doesn't end up as wreckage amongst the stars.
+          <p class="semi-muted">
+            ASTR - a mashup of Asteroids and Lander - is a Unity project. The core of the game is
+            my <a href='https://github.com/X3r0byte/ASTR/blob/main/Gravitizer.cs'>Gravitizer</a> script, which
+            adds a physics challenge to landing on celestials like Lander to the gameplay of Asteroids.
           </p>
 
           <h5>Notes</h5>
-          <p>
-            This is a constant work in progress! Currently only controls, asteroid loot drops, and general gravity
-            mechanics are working. To say it's an alpha is an understatement :)
+          <p class="semi-muted">
+            This is a work in progress! Currently, gameplay is only shooting asteroids for loot pickups and playing
+            with the gravity effect. I am working on landing, mining, and multiplayer, as well as a purpose or story.
           </p>
 
           <h5>Controls</h5>
-          <ul>
+          <ul class="semi-muted">
             <li>
               Movement: WASD or L/R softkeys
             </li>
@@ -534,14 +503,35 @@
           </ul>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal">
+          <button type="button" class="btn btn-outline-info space" data-mdb-dismiss="modal">
             Close
           </button>
         </div>
       </div>
     </div>
   </div>
-
+  <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">
+            Message sent!
+          </h5>
+          <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p class="semi-muted">
+            Thank you for reaching out! Please allow me about a business day to get back to you 😀
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-info space" data-mdb-dismiss="modal">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="text-center p-3" style="
       background-color: rgba(0, 0, 0, 0.2);
       color: rgba(255, 255, 255, 0.6);
