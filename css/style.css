@@ -193,7 +193,7 @@
   line-height:35vh;
 }
 .shadow-text{
-  text-shadow: 1px 1px 2px rgb(32, 32, 32);
+  /* text-shadow: 1px 1px 2px rgb(32, 32, 32); */
 }
 
 .shadow-shift{

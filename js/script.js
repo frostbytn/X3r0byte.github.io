@@ -20,10 +20,8 @@ function changeTheme(){
 }
 
 function loadTheme(){
-
+    
     var ele = document.getElementById('theme');
-
-    console.log(themeFlipper);
 
     ele.href = themeFlipper ? lightTheme : darkTheme;
 }
