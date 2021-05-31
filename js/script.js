@@ -1,3 +1,6 @@
+var lightTheme = 'css/mdb.min.css';
+var darkTheme = 'css/mdb.dark.min.css';
+var themeFlipper = false;
 
 function resume() {
     window.location = './resume.html';
@@ -5,6 +8,24 @@ function resume() {
 
 function loadASTR() {
     gameInstance = UnityLoader.instantiate("gameContainer", "Build/build.json", { onProgress: UnityProgress });
+}
+
+function changeTheme(){
+
+    var ele = document.getElementById('theme');
+
+    ele.href = themeFlipper ? darkTheme : lightTheme;
+
+    themeFlipper = !themeFlipper;
+}
+
+function loadTheme(){
+
+    var ele = document.getElementById('theme');
+
+    console.log(themeFlipper);
+
+    ele.href = themeFlipper ? lightTheme : darkTheme;
 }
 
 function fullscreen() {
@@ -26,7 +47,7 @@ function sendMessage() {
 
     // please tell me if you found this :)
     emailjs.init("user_kycrFg3YsSi26CWoPkLSP");
-    
+
     var templateParams = {
         from_name: from,
         message: message,

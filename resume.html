@@ -9,7 +9,8 @@
   <meta http-equiv="Expires" content="0" />
   <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />
   <link rel="stylesheet" href="./font-awesome/css/all.css">
-  <link rel="stylesheet" href="css/mdb.dark.min.css" />
+  <link id='theme' rel="stylesheet" href="css/mdb.dark.min.css" />
+
   <link rel="stylesheet" href="css/style.css" />
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
@@ -32,6 +33,10 @@
   </div>
 
   <span class="right">
+    <button type="button" onclick="changeTheme();"
+    class="btn btn-dark btn-md btn-floating space">
+    <i class="fas fa-moon"></i>
+  </button>
     <button type="button" onclick="window.open('mailto:shephard@frostbytn.com')"
       class="btn btn-dark btn-md btn-floating space">
       <i class="fas fa-envelope"></i>
@@ -54,7 +59,7 @@
   </span>
 </nav>
 
-<body>
+<body onload='loadTheme();'>
   <!-- MDB -->
   <script type="text/javascript" src="js/mdb.min.js"></script>
   <!-- Custom scripts -->
@@ -152,11 +157,11 @@
                         initially part time, and went full time after graduation
                         in May of 2017. During this period, I started writing a new ERP system for NTS and implemented
                         it January 2018. I have been maintaining and developing
-                        systems since. The following is a very high level overview, more details upon request.
+                        systems since.
                       </p>
                       <ul>
                         <li>
-                          Identify issues and develop solutions by writing custom software and databases.
+                          Identify issues and develop solutions by writing custom software and databases including ERP and data analysis.
                         </li>
                         <li>
                           Maintain existing company software by debugging, testing, and adding feature requests.
@@ -166,6 +171,9 @@
                         </li>
                         <li>
                           Design understandable UI/UX for company staff and clients.
+                        </li>
+                        <li>
+                          Projects have included a custom ERP, GIS web and desktop analysis apps, finance dashboard and operations analysis apps, team and solo development.
                         </li>
                       </ul>
 
@@ -184,12 +192,12 @@
                       <p class="small text-muted text-uppercase mb-2">
                         Pharmacy Technician | Inventory Manager
                       </p>
-                      <p class="card-text italics">
+                      <!-- <p class="card-text italics">
                         Due to the CVS Target Pharmacy buyout in 2015, I became a CVS employee. During the transition, I
                         was relied upon for training others on new systems
                         and inventory. After, I maintained inventory using a variety of systems and developed internal
                         procedures when a best practice was not available.
-                      </p>
+                      </p> -->
                       <ul>
                         <li>
                           Worked quickly and efficiently despite the strict control of HIPPA, DEA, Board of Pharmacy,
@@ -218,11 +226,11 @@
                       <p class="small text-muted text-uppercase mb-2">
                         Pharmacy Technician | Barista
                       </p>
-                      <p class="card-text italics">
+                      <!-- <p class="card-text italics">
                         I started out as a Starbucks Barista within Target, then promoted to Pharmacy Technician. I
                         worked multiple locations and thrived in a fast
                         paced environment over the years employed by Target.
-                      </p>
+                      </p> -->
                       <ul>
                         <li>
                           Studied and tested out of Target's Pharmacy Licensure Exams recognized by Minnesota.
@@ -306,7 +314,7 @@
                 <div class="col-lg-12 col-md-12 mb-4">
                   <div class="card mb-4">
                     <div class="card-body">
-                      <h5>Bachelor's Business Administration <p class='right text-muted'>2014 - 2017</p>
+                      <h5>Business Administration <p class='right text-muted'>2014 - 2017</p>
                       </h5>
                       <p class="small text-muted text-uppercase mb-2">
                         Minor Business Administration | University Minnesota Duluth <a href="https://lsbe.d.umn.edu/"><i
@@ -365,119 +373,101 @@
                 <h3 class="text-left"><strong>Skills <i class="fas fa-hand-sparkles"></i></strong></h3>
                 <p class="small text-muted text-uppercase mb-2">
                 </p>
-                <p>
-                  A quick inventory of my skills in various aspects of development in no particular order. They are
-                  scored by color from red to green, or least familiar to most familiar.
+                <p class="small text-muted text-uppercase mb-2">
+                  a few things that I am comfortable with - not a complete list!
                 </p>
               </div>
               <!--Grid row-->
               <div class="row">
+                <div class="col-lg-4 col-md-12 mb-4">
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <h5 class="card-title">Strengths </h5>
+                      <p class="card-text">
+                        <span class='pill high-level'>fullstack development</span>
+                        <span class='pill high-level'>system design</span>
+                        <span class='pill high-level'>relational databases</span>
+                        <span class='pill high-level'>responsive designs</span>
+                        <span class='pill high-level'>web app</span>
+                        <span class='pill high-level'>desktop</span>
+                        <span class='pill high-level'>MVVM</span>
+                        <span class='pill high-level'>OOP</span>
+                        <span class='pill high-level'>cloud compute</span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
                 <!--Grid column-->
-                <div class="col-lg-3 col-md-12 mb-4">
+                <div class="col-lg-4 col-md-12 mb-4">
                   <div class="card mb-3">
                     <div class="card-body">
                       <h5 class="card-title">Languages </h5>
                       <p class="card-text">
                         <span class='pill high-level'>C#</span>
-                        <span class='pill mid-level'>C++</span>
-                        <span class='pill mid-level'>Java</span>
-                        <span class='pill high-level'>Python</span>
-                        <span class='pill high-level'>TypeScript</span>
                         <span class='pill high-level'>SQL</span>
-                        <span class='pill mid-level'>No-SQL</span>
-                        <span class='pill high-level'>JavaScript</span>
-                        <span class='pill high-level'>HTML</span>
-                        <span class='pill high-level'>CSS</span>
-                        <span class='pill mid-level'>PowerShell/Bash</span>
-                        <span class='pill mid-level'>PHP</span>
-                        <span class='pill low-level'>F#</span>
-                        <span class='pill mid-level'>VB/A</span>
+                        <span class='pill high-level'>javascript</span>
+                        <span class='pill high-level'>typescript</span>
+                        <span class='pill high-level'>python</span>
+                        <span class='pill high-level'>PHP</span>
+
+
                       </p>
 
                     </div>
                   </div>
                 </div>
                 <!--Grid column-->
-                <div class="col-lg-3 col-md-12 mb-4">
+                <div class="col-lg-4 col-md-12 mb-4">
                   <div class="card mb-3">
                     <div class="card-body">
                       <h5 class="card-title">Technologies</h5>
                       <p class="card-text">
-                        <span class='pill high-level'>.NET</span>
+                        <span class='pill high-level'>.NET/core</span>
+                        <span class='pill high-level'>node.js</span>
+                        <span class='pill high-level'>angular</span>
+                        <span class='pill high-level'>Azure</span>
+                        <span class='pill high-level'>dev express</span>
                         <span class='pill high-level'>WPF</span>
-                        <span class='pill high-level'>ML.NET</span>
-                        <span class='pill high-level'>Angular</span>
-                        <span class='pill mid-level'>Azure</span>
-                        <span class='pill high-level'>SEAN</span>
-                        <span class='pill mid-level'>MEAN</span>
-                        <span class='pill mid-level'>Electron</span>
-                        <span class='pill high-level'>WPF</span>
-                        <span class='pill high-level'>WinForms</span>
-                        <span class='pill low-level'>Android</span>
-                        <span class='pill high-level'>JavaScript</span>
-                        <span class='pill high-level'>Node.js</span>
-                        <span class='pill high-level'>REST API</span>
+                        <span class='pill high-level'>LINQ</span>
+                        <span class='pill high-level'>electron</span>
+
                       </p>
                     </div>
                   </div>
                 </div>
                 <!--Grid column-->
-                <div class="col-lg-3 col-md-12 mb-4">
+                <!-- <div class="col-lg-3 col-md-12 mb-4">
                   <div class="card mb-3">
                     <div class="card-body">
                       <h5 class="card-title">Environments </h5>
                       <p class="card-text">
-                        <span class='pill high-level'>Visual Studio</span>
-                        <span class='pill high-level'>SQL Server Studio</span>
-                        <span class='pill mid-level'>Azure Management</span>
-                        <span class='pill mid-level'>Azure Cosmos DB</span>
-                        <span class='pill high-level'>Visual Code</span>
-                        <span class='pill low-level'>NetBeans</span>
-                        <span class='pill high-level'>IoT Development</span>
-                        <span class='pill low-level'>MS DevOps</span>
-                        <span class='pill high-level'>MS Access</span>
-                        <span class='pill high-level'>GitHub</span>
-                        <span class='pill mid-level'>Particle.io</span>
+
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!--Grid column-->
-                <div class="col-lg-3 col-md-12 mb-4">
+                <!-- <div class="col-lg-3 col-md-12 mb-4">
                   <div class="card mb-3">
                     <div class="card-body">
                       <h5 class="card-title">SDKs </h5>
                       <p class="card-text">
-                        <span class='pill high-level'>ArcGIS WPF</span>
-                        <span class='pill high-level'>ArcGIS JS</span>
-                        <span class='pill low-level'>NVIDIA AI</span>
-                        <span class='pill mid-level'>Alpaca Trading</span>
-                        <span class='pill high-level'>DevExpress</span>
-                        <span class='pill mid-level'>Unity</span>
+ 
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
                 <!--Grid column-->
-                <div class="col-lg-12 col-md-12 mb-4">
+                <!-- <div class="col-lg-12 col-md-12 mb-4">
                   <div class="card mb-12">
                     <div class="card-body">
                       <h5 class="card-title">General Development</h5>
                       <p class="card-text">
-                        <span class='pill high-level'>Relational DB</span>
-                        <span class='pill high-level'>Web</span>
-                        <span class='pill mid-level'>Linux</span>
-                        <span class='pill mid-level'>ARM</span>
-                        <span class='pill mid-level'>Embedded</span>
-                        <span class='pill mid-level'>Document DB</span>
-                        <span class='pill high-level'>Full Stack</span>
-                        <span class='pill high-level'>Desktop</span>
-                        <span class='pill mid-level'>MVVM</span>
-                        <span class='pill high-level'>Database Design</span>
+  
                       </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
             </section>
             <hr class="my-5" />
             <section id='interests'>
@@ -500,10 +490,18 @@
                 <span class='pill interest'>Woodworking <i class="fas fa-hammer"></i></span>
               </p>
             </section>
+
             <hr class="my-5" />
-            <p class='left text-muted'>
+
+
+            <section>
+              <h3 class="text-center semi-muted italics">I am an Eagle Scout</h3>
+              </p>
+            </section>
+            <!-- <hr class='my-5'/> -->
+            <!-- <p class='left text-muted'>
               Avatar photo credit: <a href='https://herbergphotography.com/'>Herberg Photography</a>
-            </p>
+            </p> -->
           </div>
         </div>
       </div>

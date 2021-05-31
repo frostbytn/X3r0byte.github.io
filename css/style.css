@@ -30,7 +30,7 @@
 
 .card:hover{
   transform: scale(1.02);
-  background-color: rgb(73, 73, 73);
+  /* background-color: rgb(73, 73, 73); */
   transition: transform 250ms;
 }
 
@@ -145,7 +145,7 @@
 }
 
 .semi-muted{
-  color:rgb(212, 212, 212);
+  /* color:rgb(212, 212, 212); */
 }
 
 .fit{
