@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -33,9 +34,8 @@
   </div>
 
   <span class="right">
-    <button type="button" onclick="changeTheme();"
-    class="btn btn-dark btn-md btn-floating space">
-    <i class="fas fa-paint-roller"></i>  </button>
+    <button type="button" onclick="changeTheme();" class="btn btn-dark btn-md btn-floating space">
+      <i class="fas fa-paint-roller"></i> </button>
     <button type="button" onclick="window.open('mailto:gmckeever88@outlook.com')"
       class="btn btn-dark btn-md btn-floating space">
       <i class="fas fa-envelope"></i>
@@ -83,7 +83,10 @@
                 <a class="nav-link" href="#header">Introduction</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#work-experience">Work Experience</a>
+                <a class="nav-link" href="#experience">Experience</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#work-experience">Work History</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#education">Education</a>
@@ -124,15 +127,173 @@
               </p>
               <p>Software developer with a diversified skill set going on 5 years of experience. Has a knack for
                 creative problem solving and quickly learning new frameworks and environments. Looking for an
-                opportunity to create unique and impacting solutions for today's problems.
+                opportunity for rapid professional development and career growth.
               </p>
             </section>
+
+            <hr>
+
+
+            <section id='experience'>
+              <div class="text-left my-5">
+                <h3 class="text-left"><strong>Experience <i class="fas fa-laptop-code"></i></strong></h3>
+                <p class="small mb-2">
+                  Since 2016, I have been professionally creating software to manage business (ERP), visualize finance
+                  and operational data, and solve various other cases that arise. I also work on personal projects in my
+                  spare time – some to help me grow as a developer, some just for fun!
+                </p>
+              </div>
+              <!--Grid row-->
+              <div class="row">
+                <!--Grid column-->
+                <div class="col-lg-12 col-md-12 mb-4">
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h4>Professional
+                      </h4>
+                      <h5>Business Management ERP (C#, .NET, SQL Server) </h5>
+                      <ul>
+                        <li>
+                          A full stack, solo written, custom web app that includes project management, time tracking,
+                          purchasing, and payroll.
+                        </li>
+                        <li>
+                          My current employer uses this system to run day to day business for ~50 staff.
+                        </li>
+                      </ul>
+
+                      <h5>Cashboard (C#, WPF, SQL Server, DevExpress) </h5>
+                      <ul>
+                        <li>
+                          An operations and finance analytics desktop app, much like Tableau.
+                        </li>
+                        <li>
+                          Data is compiled and cleaned through SQL scheduler/custom console apps and visualized via
+                          pivot grids and charting.
+                        </li>
+                      </ul>
+
+
+
+                      <h5>SAGE 100 Integrations (Sage VI, Sage ODBC Data Provider) </h5>
+                      <ul>
+                        <li>
+                          Business system and Cashboard utilize custom integrations to SAGE for data entry and analysis.
+                        </li>
+                        <li>
+                          Cashboard’s data compiler normalizes SAGE’s backend for trend analysis.
+                        </li>
+                      </ul>
+
+                      <h5>ArcGIS Client Portal (Sequelize, Express.js, Angular, Node.js, ArcGIS.js) </h5>
+                      <ul>
+                        <li>
+                          A premise hosted client accessible web app that visualizes spatial data through ArcGIS.js SDK.
+                        </li>
+                        <li>
+                          Collaborated with NorthPoint GIS in a team environment.
+                        </li>
+                      </ul>
+
+                    </div>
+                  </div>
+
+
+                  <div class="card mb-4">
+                    <div class="card-body">
+                      <h4>Personal
+                      </h4>
+                      <h5>RaspiBot (Python, Raspberry Pi B+, motors, servos, camera + US sensors) </h5>
+                      <ul>
+                        <li>
+                          Robot that utilizes onboard sensors to track and follow input colors.
+                        </li>
+                        <li>
+                          Uses camera and US sensors for obstacle avoidance.
+                        </li>
+                      </ul>
+
+                      <h5>Vexlus (ASPNET Core, Angular, Nebular UI, SQL Server, Azure CosmosDB, Azure Cloud Services,
+                        Azure DevOps Pipelines) </h5>
+                      <ul>
+                        <li>
+                          A text analysis web app that uses NER and a custom relation solution to map unstructured text
+                          into a graph.
+                        </li>
+                        <li>
+                          Built off of a scalable multi-tenant capable code base.
+                        </li>
+                      </ul>
+
+                      <h5>This website! (GitHub pages, MDB, JS/CSS/HTML) </h5>
+                      <ul>
+                        <li>
+                          Personal development, resume, and home page.
+                        </li>
+                        <li>
+                          Single page and simple design allow for easy nav and edit.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+
+
+
+
+
+
+
+
+
+                </div>
+              </div>
+              <!--Grid row-->
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <hr class="my-5" />
             <!--Section: Cards-->
             <!--Section: Cards-->
             <section id='work-experience'>
               <div class="text-left my-5">
-                <h3 class="text-left"><strong>Work Experience <i class="fas fa-briefcase"></i></strong></h3>
+                <h3 class="text-left"><strong>Work History <i class="fas fa-briefcase"></i></strong></h3>
                 <p class="small text-muted text-uppercase mb-2">
                   General highlights
                 </p>
@@ -160,7 +321,8 @@
                       </p>
                       <ul>
                         <li>
-                          Identify issues and develop solutions by writing custom software and databases including ERP and data analysis.
+                          Identify issues and develop solutions by writing custom software and databases including ERP
+                          and data analysis.
                         </li>
                         <li>
                           Maintain existing company software by debugging, testing, and adding feature requests.
@@ -172,7 +334,8 @@
                           Design understandable UI/UX for company staff and clients.
                         </li>
                         <li>
-                          Projects have included a custom ERP, GIS web and desktop analysis apps, finance dashboard and operations analysis apps, team and solo development.
+                          Projects have included a custom ERP, GIS web and desktop analysis apps, finance dashboard and
+                          operations analysis apps, team and solo development.
                         </li>
                       </ul>
 
@@ -223,7 +386,7 @@
                         <p class='right text-muted'>2011 - 2015</p>
                       </h5>
                       <p class="small text-muted text-uppercase mb-2">
-                        Pharmacy Technician | Barista
+                        Pharmacy Technician | Team Member
                       </p>
                       <!-- <p class="card-text italics">
                         I started out as a Starbucks Barista within Target, then promoted to Pharmacy Technician. I
@@ -285,7 +448,8 @@
                       </h5>
                       <p class="small text-muted text-uppercase mb-2">
                         Major Computer Information Systems | University Minnesota Duluth <a
-                          href="https://www.cs.umd.edu/"><i class="fas fa-link"></i></a><br>
+                          href="https://www.d.umn.edu/academics/majors-and-minors/computer-science-bs"><i
+                            class="fas fa-link"></i></a><br>
                       </p>
                       <p class="card-text">
                         Coursework included CS I & II, Software Analysis and Design, IT in Business, and Software
