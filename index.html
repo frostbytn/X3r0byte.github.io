@@ -59,9 +59,10 @@
   style="background-image: url('./img/background-medium-min.png'); background-repeat: no-repeat; background-attachment: fixed;">
   <!-- Custom scripts -->
   <script type="text/javascript">
-    var occupations = ['Software Developer', 'Guitarist', 'Traveler', 'IoT Builder',
-                        'System Designer', 'Full Stack Developer', 
-                        'Database Developer', 'Hacker', 'Troubleshooter', 'Problem Solver'];
+    var occupations = ['Software Engineer', 'Guitarist', 'Traveler', 'IoT Builder',
+                        'System Designer', 'Back End Developer', 
+                        'Database Developer', 'Troubleshooter', 'Problem Solver'];
+
 
     var gameInstance;
     var direction = 1;
@@ -71,8 +72,7 @@
     var text = '';
     var _text = 'Hello! My name is Gary McKeever, and I am a';
     var _pos = 0;
-    var message = 'Based in Minnesota with 5 years of professional experience in database, desktop, and web development. Currently, ' +
-      'I am working on a full stack platform complete with CI/CD and AI analytics for a few ideas of mine. I also try to play guitar when I get the chance! 🎸🤘  '
+    var message = 'Based in Minnesota with 6+ years of professional experience in database, desktop, and web development. Previous work includes sole dev full-stack solutions for ERP and data collection. Current development work includes scalable cloud-driven API solutions in health tech. Looking ahead to learning event driven architectures and integrating process automation for tying all this together, creating a truly scalable experience.  '
     var messagePos = 0;
 
     $(document).ready(function () {
@@ -137,7 +137,7 @@
         messagePos++;
 
         // 'recurse' or fire the timer again
-        setTimeout(writeMessage, 15);
+        setTimeout(writeMessage, 10);
       }
       // else, the full header is written, so wait
       else {
