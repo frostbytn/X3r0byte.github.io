@@ -14,10 +14,12 @@ var text = '';
 var _pos = 0;
 var messagePos = 0;
 
+
 $(document).ready(function () {
     _text = document.getElementById('greeting-text').innerText;
     message = document.getElementById('message-text').innerText;
     var cursor = document.getElementById('txt-cursor');
+    document.getElementById('current-year').textContent = new Date().getFullYear();
 
     setTimeout(writeGreeting, 30);
     setInterval(function () {

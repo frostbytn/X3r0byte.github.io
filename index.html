@@ -60,8 +60,12 @@
 <body
   onload='loadTheme();'
   style="background-image: url('./img/background-medium-min.png'); background-repeat: no-repeat; background-attachment: fixed;">
-  <div id="greeting-text" style="display:none;">Hello! My name is Gary McKeever, and I am a</div>
-  <div id="message-text" style="display:none;">Based in Minnesota with <span id="dynamic-experience"></span> of professional experience in software engineering, system architecture, and cursing the guy causing PEBKAC issues. From sole dev full stack ERP solutions to architecture leadership in an engineering department, the only thing I've learned is I am just scratching the surface.</div>  <script src="script.js" type="text/javascript"></script>  <div class="container">
+
+    <div id="greeting-text" style="display:none;">Hello! My name is Gary McKeever, and I am a</div>
+    <div id="message-text" style="display:none;">Based in Minnesota with <span id="dynamic-experience"></span> of professional experience in software engineering, system architecture, and cursing the guy causing PEBKAC issues. From sole dev full stack ERP solutions to architecture leadership in an engineering department, the only thing I've learned is I am just scratching the surface.</div>  <script src="script.js" type="text/javascript"></script>  <div class="container">  
+    <div class='break'>
+      <br>
+    </div>
     <div class='break'>
       <br>
     </div>
@@ -76,12 +80,9 @@
             </p>
           </div>
           <div class='col-lg-2'>
-            <img class='me-large center' src='./img/me.jpg'>
+            <img class='me-large center  responsive-img' src='./img/me.jpg'>
           </div>
         </div>
-        <button type="button" onclick="window.location = './index.html#contact'" class="btn btn-outline-info space">
-          Contact
-        </button>
       </section>
 
       <section>
@@ -89,18 +90,19 @@
         <div class='break'>
           <br>
         </div>
+        
         <!--Grid row-->
         <div class="row">
           <!--Grid column-->
           <div class="col-lg-12 col-md-12 mb-4">
             <div class="" >
               <div class="card-body">
-                <h3 class="text-left"><strong>Work Things</strong></h3>
+                <h3 class="text-left"><strong>Work</strong></h3>
                 <p class='semi-muted'>
-                  I engineer architectural solutions in the health tech space to solve healthcare interoperability issues. Adopting tech driven solutions in healthcare will help us move forward and put patient care back in the hands of providers, instead of clunky, inefficient operational processes.
+                  I help engineer architectural solutions in the health tech space to solve healthcare interoperability issues. Adopting tech driven solutions in healthcare will help us move forward and put patient care back in the hands of providers, instead of clunky, inefficient operational processes.
                 </p>
                 <br>
-                <h3 class="text-left"><strong>Play Things</strong></i></h3>
+                <h3 class="text-left"><strong>Play</strong></i></h3>
                 <p class='semi-muted'>
                   Like everyone else I am working on LLM projects!
                   <ul>
@@ -337,14 +339,16 @@
       background-color: rgba(0, 0, 0, 0.2);
       color: rgba(255, 255, 255, 0.6);
     ">
-    © 2021 Copyright:
+    © <span id="current-year"></span> Copyright:
     <a class="text-white" href="">
       Gary McKeever</a>
+
+    <p class='left text-muted'>
+    Built with: <a href='https://mdbootstrap.com/'>MDBootstrap</a>
     <p class='left text-muted'>
       Avatar photo credit: <a href='https://herbergphotography.com/'>Herberg Photography</a>
     </p>
   </div>
   <!-- Copyright -->
 </footer>
-
 </html>

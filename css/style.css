@@ -228,3 +228,9 @@ body {
 .transparent-card {
   background-color: transparent;
 }
+
+@media (max-width: 950px) {
+  .responsive-img {
+    display: none;
+  }
+}
