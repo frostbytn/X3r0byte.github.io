@@ -209,3 +209,22 @@ body{
     line-height:15vh;
   }
 }
+.semi-transparent {
+  background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+  transition: background-color 0.5s ease; /* Smooth transition for background color */
+}
+
+.semi-transparent:hover {
+  background-color: rgba(255, 255, 255, 0.9); /* Slightly less transparent on hover */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.transparent-card {
+  background-color: transparent;
+}
