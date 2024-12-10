@@ -242,7 +242,7 @@ body {
 
 .fade-in {
   opacity: 0;
-  filter: blur(10px);
+  filter: blur(14px);
   transition: opacity 1s ease, filter 1s ease;
 }
 
@@ -250,3 +250,4 @@ body {
   opacity: 1;
   filter: blur(0);
 }
+

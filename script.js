@@ -2,7 +2,7 @@ var occupations = [
     'Software Architect', 'Solutions Engineer', 
     'Guitarist', 'Traveler', 'IoT Builder',
     'System Designer',
-    'Software Engineer', 'Problem Solver', 'Nordic Explorer'
+    'Software Engineer', 'Problem Solver'
 ];
 
 var gameInstance;
