@@ -62,7 +62,8 @@
 }
 
 .large{
-  font-size: 96px;
+  font-size: 86px;
+  
 }
 
 .low-level{
@@ -137,7 +138,7 @@
 }
 
 .cursor{
-  position: absolute;
+  /* position: absolute; */
 }
 
 .center {
@@ -233,4 +234,8 @@ body {
   .responsive-img {
     display: none;
   }
+}
+
+.txt-greeting {
+  height: 200px;
 }

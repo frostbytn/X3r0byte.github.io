@@ -1,7 +1,7 @@
 var occupations = [
     'Software Architect', 'Solutions Engineer', 
     'Guitarist', 'Traveler', 'IoT Builder',
-    'System Designer', 'Full Stack Developer',
+    'System Designer',
     'Software Engineer', 'Problem Solver', 'Nordic Explorer'
 ];
 
