@@ -124,8 +124,12 @@ function updateExperience() {
     const diffInMilliseconds = now - startDate;
 
     const years = (diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25)).toFixed(6);
-
-    document.getElementById('dynamic-experience').textContent = years + ' years';
+    try{
+        document.getElementById('dynamic-experience').textContent = years + ' years';
+    }
+    catch(e){
+        // whyever this works is beyond me
+    }
 }
 
 setInterval(updateExperience, 1000);
