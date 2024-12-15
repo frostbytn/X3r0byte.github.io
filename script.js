@@ -38,17 +38,17 @@ $(document).ready(function () {
     
 
     _text = document.getElementById('greeting-text').innerText;
-    message = document.getElementById('message-text').innerText;
+    // message = document.getElementById('message-text').innerText;
     var cursor = document.getElementById('txt-cursor');
     document.getElementById('current-year').textContent = new Date().getFullYear();
 
     setTimeout(writeGreeting, 30);
     setInterval(function () {
-        if (cursor.innerText == "|") {
+        if (cursor.innerText == " |") {
             cursor.innerText = "";
         }
         else {
-            cursor.innerText = "|";
+            cursor.innerText = " |";
         }
     }, 250);
 });
@@ -68,14 +68,14 @@ function writeGreeting() {
 }
 
 function writeMessage() {
-    var messageElement = document.getElementById('txt-message');
-    var _letter = message[messagePos];
+    // var messageElement = document.getElementById('txt-message');
+    // var _letter = message[messagePos];
 
-    if (messagePos < message.length) {
-        messageElement.textContent += _letter;
-        messagePos++;
-        setTimeout(writeMessage, 10);
-    }
+    // if (messagePos < message.length) {
+    //     messageElement.textContent += _letter;
+    //     messagePos++;
+    //     setTimeout(writeMessage, 10);
+    // }
 }
 
 async function writer() {
@@ -117,21 +117,17 @@ function eraser() {
 }
 
 function updateExperience() {
+    // when I started in the industry!
     const startDate = new Date('2016-11-01T00:00:00Z');
     const now = new Date();
 
-    // Calculate time difference in milliseconds
     const diffInMilliseconds = now - startDate;
 
-    // Convert to decimal years (1 year = 365.25 days for leap years)
     const years = (diffInMilliseconds / (1000 * 60 * 60 * 24 * 365.25)).toFixed(6);
 
-    // Update the HTML
     document.getElementById('dynamic-experience').textContent = years + ' years';
 }
 
-// Update every second
 setInterval(updateExperience, 1000);
 
-// Call immediately to set initial value
 updateExperience();
