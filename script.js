@@ -1,8 +1,7 @@
 var occupations = [
-    'Software Architect', 'Solutions Engineer', 
+    'Software Engineer', 'Solutions Architect', 
     'Guitarist', 'Traveler', 'IoT Builder',
-    'System Designer',
-    'Software Engineer', 'Problem Solver'
+    'System Designer', 'Problem Solver'
 ];
 
 var gameInstance;
