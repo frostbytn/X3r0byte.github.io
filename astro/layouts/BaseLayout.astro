@@ -1,0 +1,157 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url.href} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <div class="shell">
+      <header class="site-nav">
+        <div class="container nav-inner">
+          <a class="brand" href="/">Gary McKeever</a>
+          <div class="nav-controls">
+            <nav class="nav-links" aria-label="Primary">
+              <a href="/#impact">Impact</a>
+              <a href="/#work">Professional</a>
+              <a href="/#journey">Journey</a>
+              <a href="/#projects">Personal</a>
+              <a href="/#blog">Field Notes</a>
+              <a href="/#contact">Contact</a>
+            </nav>
+            <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" title="Toggle color theme">
+              <span class="theme-toggle-icon" aria-hidden="true">◐</span>
+              <span class="theme-toggle-label">Theme</span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <main id="main-content">
+        <div class="container">
+          <slot />
+        </div>
+      </main>
+      <footer class="site-footer">
+        <div class="container footer-inner">
+          <p>&copy; {new Date().getFullYear()} Gary McKeever</p>
+          <nav class="footer-links" aria-label="Footer">
+            <a href="/">Home</a>
+            <a href="/#journey">Journey</a>
+            <a href="/blog">Field Notes</a>
+            <a href="https://github.com/X3r0byte" target="_blank" rel="noreferrer">GitHub</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+    <script is:inline>
+      (() => {
+        const key = 'gmk-theme';
+        const root = document.documentElement;
+        const toggle = document.querySelector('[data-theme-toggle]');
+
+        const preferred = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+        const stored = localStorage.getItem(key);
+        const initial = stored === 'light' || stored === 'dark' ? stored : preferred;
+
+        const applyTheme = (theme) => {
+          root.setAttribute('data-theme', theme);
+          toggle.setAttribute('aria-pressed', String(theme === 'light'));
+          const label = toggle.querySelector('.theme-toggle-label');
+          if (label) label.textContent = theme === 'light' ? 'Light' : 'Dark';
+        };
+
+        applyTheme(initial);
+
+        if (toggle) {
+          toggle.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            localStorage.setItem(key, next);
+            applyTheme(next);
+          });
+        }
+
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const pendingHashKey = 'gmk-pending-hash';
+
+        const smoothScrollToHash = (hash) => {
+          const target = document.querySelector(hash);
+          if (!target) return false;
+
+          target.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            block: 'start'
+          });
+
+          window.history.pushState(null, '', hash);
+          return true;
+        };
+
+        const pendingHash = sessionStorage.getItem(pendingHashKey);
+        if (pendingHash) {
+          sessionStorage.removeItem(pendingHashKey);
+          requestAnimationFrame(() => {
+            smoothScrollToHash(pendingHash);
+          });
+        } else if (window.location.hash) {
+          requestAnimationFrame(() => {
+            smoothScrollToHash(window.location.hash);
+          });
+        }
+
+        document.addEventListener('click', (event) => {
+          const anchor = event.target.closest('a');
+          if (!anchor) return;
+          if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+
+          const href = anchor.getAttribute('href');
+          if (!href || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+          const url = new URL(anchor.href, window.location.origin);
+          const sameOrigin = url.origin === window.location.origin;
+          if (!sameOrigin) return;
+
+          const samePath = url.pathname === window.location.pathname;
+          const hasHash = Boolean(url.hash);
+
+          if (samePath && hasHash) {
+            event.preventDefault();
+            smoothScrollToHash(url.hash);
+            return;
+          }
+
+          if (!samePath && hasHash && url.pathname === '/') {
+            event.preventDefault();
+            sessionStorage.setItem(pendingHashKey, url.hash);
+            window.location.assign(url.pathname);
+            return;
+          }
+
+          if (!reduceMotion && !samePath) {
+            event.preventDefault();
+            document.body.classList.add('is-leaving');
+            window.setTimeout(() => {
+              window.location.assign(url.href);
+            }, 140);
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

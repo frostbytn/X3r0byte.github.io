@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteContent } from '../../data/site-content';
+import Icon from '../../components/Icon.astro';
+---
+
+<BaseLayout title="Blog | Gary McKeever" description="Architecture, modernization, and platform delivery writing.">
+  <section>
+    <p class="eyebrow">Blog</p>
+    <h1>Architecture Notes</h1>
+    <p class="lead">Notes on modernization, migration strategy, and architecture decisions that change how systems behave in production.</p>
+  </section>
+
+  <section class="blog-list">
+    {siteContent.blogPosts.map((post) => (
+      <a class="blog-link" href={post.href}>
+        <p class="project-meta">{post.date} · {post.readTime}</p>
+        <h2>{post.title}</h2>
+        <p>{post.description}</p>
+        <span class="blog-cta">Read article <Icon name="arrow" /></span>
+      </a>
+    ))}
+  </section>
+</BaseLayout>

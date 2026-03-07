@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="ASTR | Gary McKeever" description="ASTR Unity project overview and playable WebGL build.">
+  <section>
+    <h1>ASTR</h1>
+    <p class="lead">
+      ASTR is where I test how rules, constraints, and progression systems behave when people can actually interact with them.
+    </p>
+    <div class="chips">
+      <span class="chip">Unity</span>
+      <span class="chip">C#</span>
+      <span class="chip">WebGL</span>
+      <span class="chip">Systems design experimentation</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Project Notes</h2>
+    <p class="lead muted">
+      I use this project to pressure-test system behavior in a smaller environment: resource limits, progression loops, and the tradeoffs that appear once a design has to run instead of just sound good on paper.
+    </p>
+  </section>
+
+  <section>
+    <h2>Playable Build</h2>
+    <div class="unity-shell">
+      <div id="gameContainer"></div>
+    </div>
+    <p class="project-meta">If loading takes time, keep this tab active while WebGL assets initialize.</p>
+  </section>
+
+  <script is:inline src="/TemplateData/UnityProgress.js"></script>
+  <script is:inline src="/Build/UnityLoader.js"></script>
+  <script is:inline>
+    const container = document.getElementById('gameContainer');
+    if (container && window.UnityLoader) {
+      window.UnityLoader.instantiate('gameContainer', '/Build/build.json', {
+        onProgress: window.UnityProgress
+      });
+    }
+  </script>
+</BaseLayout>

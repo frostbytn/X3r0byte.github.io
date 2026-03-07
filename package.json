@@ -1,0 +1,25 @@
+{
+  "name": "x3r0byte.github.io",
+  "version": "1.0.0",
+  "description": "Principal software architect portfolio built with Astro.",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frostbytn/X3r0byte.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/frostbytn/X3r0byte.github.io/issues"
+  },
+  "homepage": "https://github.com/frostbytn/X3r0byte.github.io#readme",
+  "dependencies": {
+    "astro": "^5.18.0"
+  }
+}

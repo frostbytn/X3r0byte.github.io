@@ -1,0 +1,604 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteContent } from '../data/site-content';
+import Icon from '../components/Icon.astro';
+
+interface TimelineEvent {
+  year: string;
+  endYear?: string;
+  title: string;
+  org?: string;
+  detail?: string;
+  tags?: string[];
+  kind: 'work' | 'education' | 'milestone';
+  weight: 'major' | 'minor';
+  progression?: string[];
+}
+
+const events: TimelineEvent[] = [
+  {
+    year: '2024',
+    title: 'Launched Ekkos',
+    detail: 'Shipped a scheduling platform built on resilient reminder semantics and natural-language task creation.',
+    kind: 'milestone',
+    weight: 'minor'
+  },
+  {
+    year: '2021',
+    endYear: 'Present',
+    title: 'Moxe Health',
+    org: 'Healthcare data aggregation & platform engineering',
+    detail: 'Led enterprise modernization using strangler patterns, event-driven autoscaling, and staged decoupling. Progressed from Intermediate to Senior, then Staff, and now Architect.',
+    tags: ['Distributed services', 'CI/CD', 'Cloud operations'],
+    kind: 'work',
+    weight: 'major',
+    progression: ['Intermediate', 'Senior', 'Staff', 'Architect']
+  },
+  {
+    year: '2021',
+    title: 'Pivoted into healthcare tech',
+    detail: 'Shifted from small-business tooling to platform-scale distributed systems.',
+    kind: 'milestone',
+    weight: 'minor'
+  },
+  {
+    year: '2016',
+    endYear: '2021',
+    title: 'Software Developer',
+    org: 'Northeast Technical Services',
+    detail: 'Sole-developed a custom ERP used by ~50 staff. Built GIS portals, finance dashboards, and SAGE integrations. First full-time engineering role.',
+    tags: ['C#', '.NET', 'SQL Server', 'Angular', 'Node.js'],
+    kind: 'work',
+    weight: 'major'
+  },
+  {
+    year: '2015',
+    endYear: '2017',
+    title: 'Pharmacy Tech · Inventory Manager',
+    org: 'CVS Pharmacy',
+    kind: 'work',
+    weight: 'minor'
+  },
+  {
+    year: '2014',
+    endYear: '2017',
+    title: 'B.S. Computer Science + Business Minor',
+    org: 'University of Minnesota Duluth',
+    detail: 'Software Engineering, Analysis & Design, and IT in Business. This decision shifted my trajectory into software architecture.',
+    kind: 'education',
+    weight: 'major'
+  },
+  {
+    year: '2011',
+    endYear: '2015',
+    title: 'Team Member → Pharmacy Technician',
+    org: 'Target Corporation',
+    kind: 'work',
+    weight: 'minor'
+  },
+  {
+    year: '2007',
+    endYear: '2010',
+    title: 'Associate of Arts',
+    org: 'Mesabi Range Community & Technical College',
+    kind: 'education',
+    weight: 'minor'
+  },
+  {
+    year: '2007',
+    title: 'Eagle Scout',
+    kind: 'milestone',
+    weight: 'minor'
+  },
+  {
+    year: '2007',
+    title: 'High School Diploma',
+    org: 'Eveleth-Gilbert High School',
+    kind: 'education',
+    weight: 'minor'
+  }
+];
+
+const kindIcon: Record<string, string> = {
+  work: 'factory',
+  education: 'file',
+  milestone: 'spark'
+};
+---
+
+<BaseLayout title="Gary McKeever | Staff Software Architect" description={siteContent.summary}>
+  <section class="hero hero-split">
+    <div>
+      <p class="eyebrow">{siteContent.eyebrow}</p>
+      <h1>{siteContent.role}</h1>
+      <p class="lead">{siteContent.summary}</p>
+      <p class="lead">{siteContent.about}</p>
+      <div class="hero-points">
+        <p><Icon name="layers" /> Break apart coupled systems safely</p>
+        <p><Icon name="route" /> Design workflow systems that hold up under failure</p>
+        <p><Icon name="shield" /> Shape deployments for scale, cost, and reliability</p>
+      </div>
+      <div class="actions">
+        <a class="btn primary" href="/#contact"><Icon name="mail" /> Contact</a>
+        <a class="btn" href={siteContent.links.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" /> LinkedIn</a>
+        <a class="btn" href={siteContent.links.github} target="_blank" rel="noreferrer"><Icon name="github" /> GitHub</a>
+      </div>
+    </div>
+    <figure class="profile-shot">
+      <img src="/img/me.jpg" alt="Gary McKeever" loading="lazy" />
+    </figure>
+  </section>
+
+  <section id="impact">
+    <h2>Impact</h2>
+    <div class="impact-timeline">
+      {siteContent.architectImpact.map((item) => (
+        <article class="impact-row">
+          <div class="impact-marker" aria-hidden="true"></div>
+          <div>
+            <h3><Icon name={item.icon} /> {item.title}</h3>
+            <p>{item.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="technical">
+    <h2>Technical Snapshot</h2>
+    <div class="technical-list">
+      {siteContent.technicalSnapshot.map((item) => (
+        <article class="technical-row">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <p class="technical-detail">{item.detail}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="work">
+    <h2>Work</h2>
+    <div class="work-editorial">
+      {siteContent.professionalWork.map((work) => (
+        <article class="work-entry">
+          <div class="work-entry-icon">
+            <Icon name={work.icon} />
+          </div>
+          <div class="work-entry-body">
+            <div class="work-entry-header">
+              <h3>{work.title}</h3>
+              <span class="status-badge">{work.status}</span>
+            </div>
+            <p>{work.description}</p>
+            {work.progression && (
+              <p class="work-progression"><Icon name="chart" /> {work.progression}</p>
+            )}
+            <p class="work-stack"><Icon name="layers" /> {work.stack}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="journey">
+    <div class="section-quote">
+      <Icon name="quote" />
+      <p>From pharmacy counters to healthtech platform architecture, the pivots and compounding decisions that shaped how I build today.</p>
+    </div>
+    <div class="journey-hero">
+      <h2>The Journey So Far</h2>
+    </div>
+
+    <section class="journey-layout">
+      <div class="timeline-panel" aria-label="Career timeline" tabindex="0">
+        <section class="journey-legend">
+          <span class="legend-item"><span class="legend-dot work"></span> Career</span>
+          <span class="legend-item"><span class="legend-dot education"></span> Education</span>
+          <span class="legend-item"><span class="legend-dot milestone"></span> Milestone</span>
+        </section>
+
+        <div class="timeline">
+          <div class="timeline-line" aria-hidden="true"></div>
+          {events.map((evt, i) => (
+            <article class={`tl-item ${evt.kind} ${evt.weight}`} style={`animation-delay: ${50 + i * 45}ms`}>
+              <div class="tl-marker" aria-hidden="true">
+                <span class={`tl-dot ${evt.kind} ${evt.weight}`}></span>
+              </div>
+              <div class="tl-body">
+                <span class="tl-date">{evt.endYear ? `${evt.year} – ${evt.endYear}` : evt.year}</span>
+                <h3><Icon name={kindIcon[evt.kind]} /> {evt.title}</h3>
+                {evt.org && <p class="tl-org">{evt.org}</p>}
+                {evt.detail && <p class="tl-detail">{evt.detail}</p>}
+                {evt.progression && (
+                  <div class="tl-progression">
+                    {evt.progression.map((step, j) => (
+                      <Fragment>
+                        <span class="prog-step">{step}</span>
+                        {j < evt.progression!.length - 1 && <span class="prog-arrow" aria-hidden="true">→</span>}
+                      </Fragment>
+                    ))}
+                  </div>
+                )}
+                {evt.tags && evt.tags.length > 0 && (
+                  <p class="tl-tags"><Icon name="layers" /> {evt.tags.join(', ')}</p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <aside class="journey-rail" aria-label="Journey highlights">
+        <div class="rail-block">
+          <h3>At a glance</h3>
+          <p class="muted">Current snapshot of the work and scope that shaped this profile.</p>
+          <ul class="rail-list">
+            <li><strong>Role:</strong> Architect working in healthcare platform engineering.</li>
+            <li><strong>Scope:</strong> Reduce coupling, improve integration reliability, and make complex releases safer.</li>
+            <li><strong>Operating model:</strong> Use incremental migration, automation, and durable workflow patterns as platform capabilities.</li>
+            <li><strong>Progression:</strong> Intermediate → Senior → Staff → Architect through sustained platform outcomes.</li>
+            <li><strong>Domain thread:</strong> Healthcare operations and earlier business-side work both shaped how I think about system constraints.</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <section class="journey-cta closer">
+      <h3>Still writing the next chapter.</h3>
+      <p class="lead muted">If this is the kind of work your team needs, reach out.</p>
+      <div class="actions">
+        <a class="btn primary" href={siteContent.links.email}><Icon name="mail" /> Get in touch</a>
+        <a class="btn" href="/">Back to home</a>
+      </div>
+    </section>
+  </section>
+
+  <section id="projects" class="personal-section">
+    <div class="section-quote">
+      <Icon name="quote" />
+      <p>My projects are where I explore ideas in software with more room to experiment than day-to-day product work usually allows.</p>
+    </div>
+    <h2>Projects</h2>
+    <div class="project-showcase">
+      {siteContent.personalProjects.map((project) => (
+        <article class="showcase-entry">
+          {project.previewImage && (
+            <a class="showcase-preview" href={project.href} target="_blank" rel="noreferrer">
+              <img src={project.previewImage} alt={project.previewAlt ?? `${project.title} preview`} loading="lazy" />
+            </a>
+          )}
+          <div class="showcase-body">
+            <div class="work-entry-header">
+              <h3><Icon name={project.icon} /> {project.title}</h3>
+              <span class="status-badge">{project.status}</span>
+            </div>
+            <p class="showcase-tagline">{project.tagline}</p>
+            <p>{project.description}</p>
+            <p class="work-stack"><Icon name="layers" /> {project.stack}</p>
+            {project.href && (
+              <div class="actions">
+                <a class="btn" href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>
+                  <Icon name="arrow" /> {project.hrefLabel ?? 'View project'}
+                </a>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="blog">
+    <div class="section-quote">
+      <Icon name="quote" />
+      <p>I write when there is a pattern worth naming and a mistake worth helping someone else avoid.</p>
+    </div>
+    <h2>Field Notes</h2>
+    <div class="blog-list">
+      {siteContent.blogPosts.map((post) => (
+        <a class="blog-link" href={post.href}>
+          <p class="project-meta">{post.date} · {post.readTime}</p>
+          <h3>{post.title}</h3>
+          <p>{post.description}</p>
+          <span class="blog-cta">Read article <Icon name="arrow" /></span>
+        </a>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="closer">
+    <h2>Contact</h2>
+    <p class="lead muted">
+      I am interested in architecture work where system shape, runtime behavior, and operational reality all matter.
+    </p>
+    <div class="actions">
+      <a class="btn primary" href={siteContent.links.email}><Icon name="mail" /> Get in touch</a>
+      <a class="btn" href={siteContent.links.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" /> LinkedIn</a>
+      <a class="btn" href={siteContent.links.github} target="_blank" rel="noreferrer"><Icon name="github" /> GitHub</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .journey-hero {
+    margin-top: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .journey-layout {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .timeline-panel {
+    border-right: 1px solid var(--border);
+    padding-right: 1rem;
+    max-height: calc(100vh - 210px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in srgb, var(--accent), transparent 35%) transparent;
+  }
+
+  .timeline-panel:focus-visible {
+    outline: none;
+    box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent), transparent 70%);
+    border-radius: 8px;
+  }
+
+  .timeline-panel::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .timeline-panel::-webkit-scrollbar-thumb {
+    background: color-mix(in srgb, var(--accent), transparent 35%);
+    border-radius: 8px;
+  }
+
+  .journey-legend {
+    display: flex;
+    gap: 1.1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .legend-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+  }
+
+  .legend-dot.work { background: var(--accent); }
+  .legend-dot.education { background: #6ba3be; }
+  .legend-dot.milestone { background: #c6a04a; }
+
+  .timeline {
+    position: relative;
+    padding-left: 30px;
+    display: grid;
+    gap: 0;
+    padding-bottom: 0.4rem;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--accent), var(--border) 18%, var(--border) 82%, var(--border));
+    border-radius: 2px;
+  }
+
+  .tl-item {
+    position: relative;
+    padding-bottom: 1.25rem;
+    animation: fadeSlideIn 500ms ease both;
+  }
+
+  .tl-item.minor {
+    padding-bottom: 0.75rem;
+  }
+
+  .tl-item:last-child {
+    padding-bottom: 0;
+  }
+
+  .tl-marker {
+    position: absolute;
+    left: -30px;
+    top: 0.2rem;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tl-dot {
+    border-radius: 999px;
+    transition: transform 200ms ease;
+  }
+
+  .tl-dot.major {
+    width: 13px;
+    height: 13px;
+  }
+
+  .tl-dot.major.work {
+    background: var(--accent);
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent), transparent 72%);
+  }
+
+  .tl-dot.major.education {
+    background: #6ba3be;
+    box-shadow: 0 0 0 4px color-mix(in srgb, #6ba3be, transparent 72%);
+  }
+
+  .tl-dot.major.milestone {
+    background: #c6a04a;
+    box-shadow: 0 0 0 4px color-mix(in srgb, #c6a04a, transparent 72%);
+  }
+
+  .tl-dot.minor {
+    width: 7px;
+    height: 7px;
+  }
+
+  .tl-dot.minor.work { background: var(--accent); }
+  .tl-dot.minor.education { background: #6ba3be; }
+  .tl-dot.minor.milestone { background: #c6a04a; }
+
+  .tl-body {
+    transition: transform 200ms ease;
+  }
+
+  .tl-item:hover .tl-body {
+    transform: translateX(2px);
+  }
+
+  .tl-date {
+    font-size: 0.76rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--accent-2);
+  }
+
+  .tl-body h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin: 0.1rem 0 0;
+  }
+
+  .tl-item.major .tl-body h3 {
+    font-size: 1.08rem;
+  }
+
+  .tl-item.minor .tl-body h3 {
+    font-size: 0.93rem;
+  }
+
+  .tl-org {
+    font-size: 0.86rem;
+    color: var(--accent-2);
+    margin-top: 0.08rem;
+  }
+
+  .tl-detail {
+    color: var(--muted);
+    margin-top: 0.22rem;
+    font-size: 0.9rem;
+    max-width: 54ch;
+  }
+
+  .tl-item.minor .tl-detail {
+    font-size: 0.84rem;
+  }
+
+  .tl-tags {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    color: var(--accent-2);
+    margin-top: 0.28rem;
+  }
+
+  .tl-progression {
+    display: flex;
+    align-items: center;
+    gap: 0.28rem;
+    margin-top: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .prog-step {
+    font-size: 0.74rem;
+    font-weight: 600;
+    color: var(--text);
+    background: color-mix(in srgb, var(--accent), transparent 86%);
+    border: 1px solid color-mix(in srgb, var(--accent), transparent 66%);
+    border-radius: 999px;
+    padding: 0.1rem 0.46rem;
+    white-space: nowrap;
+  }
+
+  .prog-arrow {
+    color: var(--muted);
+    font-size: 0.76rem;
+  }
+
+  .journey-rail {
+    position: sticky;
+    top: 88px;
+    display: grid;
+    gap: 1.1rem;
+    align-content: start;
+  }
+
+  .rail-block {
+    border-top: 1px solid var(--border);
+    padding-top: 0.8rem;
+  }
+
+  .rail-block h3 {
+    margin-bottom: 0.45rem;
+    font-size: 1.02rem;
+  }
+
+  .rail-list {
+    margin: 0.4rem 0 0;
+    padding-left: 1rem;
+    color: var(--muted);
+    display: grid;
+    gap: 0.32rem;
+    font-size: 0.9rem;
+  }
+
+  .journey-cta {
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 960px) {
+    .journey-layout {
+      grid-template-columns: 1fr;
+      gap: 1.4rem;
+    }
+
+    .timeline-panel {
+      border-right: 0;
+      padding-right: 0;
+      max-height: none;
+      overflow: visible;
+    }
+
+    .journey-rail {
+      position: static;
+      border-top: 1px solid var(--border);
+      padding-top: 0.8rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tl-item,
+    .tl-body {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+    }
+  }
+</style>

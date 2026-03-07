@@ -1,0 +1,24 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  date: string;
+  readTime: string;
+}
+
+const { title, description, date, readTime } = Astro.props;
+---
+
+<BaseLayout title={`${title} | Gary McKeever`} description={description}>
+  <article class="post-shell">
+    <a class="back-link" href="/blog">← Back to Blog</a>
+    <p class="post-meta">{date} · {readTime}</p>
+    <h1>{title}</h1>
+    <p class="lead">{description}</p>
+    <div class="post-body">
+      <slot />
+    </div>
+  </article>
+</BaseLayout>
