@@ -448,16 +448,6 @@ p {
   gap: 1rem;
 }
 
-.impact-timeline::before {
-  content: '';
-  position: absolute;
-  left: 9px;
-  top: 4px;
-  bottom: 4px;
-  width: 1px;
-  background: var(--border);
-}
-
 .impact-row {
   display: grid;
   grid-template-columns: 20px 1fr;
@@ -727,6 +717,10 @@ p {
   text-align: center;
   padding: 3rem 0 1rem;
   border-top: 1px solid var(--border);
+}
+
+#contact.closer {
+  border-top: none;
 }
 
 .closer h2 {
