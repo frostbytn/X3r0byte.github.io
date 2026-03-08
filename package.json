@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/frostbytn/X3r0byte.github.io#readme",
   "dependencies": {
-    "astro": "^5.18.0"
+    "astro": "^5.18.0",
+    "simple-icons": "^16.11.0"
   }
 }

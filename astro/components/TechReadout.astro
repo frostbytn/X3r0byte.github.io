@@ -1,0 +1,90 @@
+---
+import {
+  siAngular,
+  siApachespark,
+  siDatabricks,
+  siDocker,
+  siDotnet,
+  siKubernetes,
+  siNodedotjs,
+  siPostgresql,
+  siPython,
+  siReact,
+  siUnity
+} from 'simple-icons';
+
+interface TechItem {
+  label: string;
+  icon?: keyof typeof iconMap;
+  monogram?: string;
+}
+
+interface Props {
+  items: TechItem[];
+}
+
+const iconMap = {
+  angular: siAngular,
+  apachespark: siApachespark,
+  databricks: siDatabricks,
+  docker: siDocker,
+  dotnet: siDotnet,
+  kubernetes: siKubernetes,
+  nodedotjs: siNodedotjs,
+  postgresql: siPostgresql,
+  python: siPython,
+  react: siReact,
+  unity: siUnity
+};
+
+const { items } = Astro.props as Props;
+---
+
+<div class="tech-readout" aria-label="Technologies I work with">
+  <div class="tech-readout-viewport">
+    <div class="tech-readout-track">
+      <ul class="tech-readout-list">
+        {items.map((item) => {
+          const icon = item.icon ? iconMap[item.icon] : undefined;
+          const accent = icon ? `#${icon.hex}` : 'var(--accent-2)';
+
+          return (
+            <li class="tech-chip" style={`--tech-accent: ${accent}`}>
+              <span class="tech-chip-mark" aria-hidden="true">
+                {icon ? (
+                  <svg class="tech-chip-logo" viewBox="0 0 24 24" fill="currentColor">
+                    <path d={icon.path}></path>
+                  </svg>
+                ) : (
+                  <span class="tech-chip-monogram">{item.monogram ?? item.label.slice(0, 3).toUpperCase()}</span>
+                )}
+              </span>
+              <span class="tech-chip-label">{item.label}</span>
+            </li>
+          );
+        })}
+      </ul>
+      <ul class="tech-readout-list" aria-hidden="true">
+        {items.map((item) => {
+          const icon = item.icon ? iconMap[item.icon] : undefined;
+          const accent = icon ? `#${icon.hex}` : 'var(--accent-2)';
+
+          return (
+            <li class="tech-chip" style={`--tech-accent: ${accent}`}>
+              <span class="tech-chip-mark" aria-hidden="true">
+                {icon ? (
+                  <svg class="tech-chip-logo" viewBox="0 0 24 24" fill="currentColor">
+                    <path d={icon.path}></path>
+                  </svg>
+                ) : (
+                  <span class="tech-chip-monogram">{item.monogram ?? item.label.slice(0, 3).toUpperCase()}</span>
+                )}
+              </span>
+              <span class="tech-chip-label">{item.label}</span>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  </div>
+</div>
