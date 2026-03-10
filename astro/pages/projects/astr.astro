@@ -2,7 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="ASTR | Gary McKeever" description="ASTR Unity project overview and playable WebGL build.">
+<BaseLayout
+  title="ASTR | Gary McKeever"
+  description="ASTR Unity project overview and playable WebGL build."
+  canonical="https://garymckeever.us/projects/astr"
+  keywords={['unity systems design', 'c# systems experimentation', 'runtime tradeoffs', 'software architecture experiments']}
+>
   <section>
     <h1>ASTR</h1>
     <p class="lead">
@@ -20,6 +25,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     <h2>Project Notes</h2>
     <p class="lead muted">
       I use this project to pressure-test system behavior in a smaller environment: resource limits, progression loops, and the tradeoffs that appear once a design has to run instead of just sound good on paper.
+    </p>
+    <p class="lead muted">
+      It also acts as a compact architecture lab for controlled runtime decisions: where state lives, how rules evolve, and how extensibility changes once real user interaction starts stressing the model.
     </p>
   </section>
 

@@ -145,14 +145,16 @@ export const siteContent = {
     },
     {
       title: 'ASTR',
-      tagline: 'A controlled environment for testing system rules, progression logic, and runtime tradeoffs.',
+      tagline: 'A top-down space survival sandbox built as a single-shard persistent universe with MMO-style world pressure.',
       description:
-        'A controlled environment for testing system rules, progression logic, and runtime tradeoffs in a domain where architecture choices are visible. It is used to evaluate extensibility and show how software structure changes system behavior.',
-      stack: 'Unity, C#, WebGL',
+        'ASTR is now its own published game entity: a single-shard persistent-universe survival sandbox where mining, processing, logistics, building, movement, and defense all happen in one shared world and create exposure that other players and threats can push against.',
+      stack: 'Custom game architecture, single-shard networking, persistent-world simulation, survival sandbox design',
       icon: 'cube',
-      status: 'Ongoing R&D',
-      href: '/projects/astr',
-      hrefLabel: 'Play ASTR'
+      status: 'Published alpha',
+      href: 'https://astrverse.net/',
+      hrefLabel: 'Visit ASTR',
+      previewImage: 'https://astrverse.net/og-card.png',
+      previewAlt: 'ASTR single-shard persistent-universe survival sandbox preview'
     }
   ],
   blogPosts: [
