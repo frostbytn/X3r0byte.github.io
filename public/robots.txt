@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://garymckeever.us/sitemap-index.xml

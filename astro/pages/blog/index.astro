@@ -2,77 +2,23 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { siteContent } from '../../data/site-content';
 import Icon from '../../components/Icon.astro';
-import { breadcrumbSchema, collectionPageSchema, webpageSchema } from '../../utils/seo';
-
-const hasPosts = siteContent.blogPosts.length > 0;
-const schema = [
-  collectionPageSchema({
-    title: 'Architecture Notes',
-    description: siteContent.blogIntro,
-    path: '/blog'
-  }),
-  webpageSchema({
-    title: 'Blog | Gary McKeever',
-    description: siteContent.blogIntro,
-    path: '/blog'
-  }),
-  breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Blog', path: '/blog' }
-  ])
-];
 ---
 
-<BaseLayout
-  title="Blog | Gary McKeever"
-  description={siteContent.blogIntro}
-  canonical="https://garymckeever.us/blog"
-  keywords={['architecture blog', 'platform modernization writing', 'distributed systems writing']}
-  robots={hasPosts ? undefined : 'noindex,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}
-  schema={schema}
->
+<BaseLayout title="Blog | Gary McKeever" description="Architecture, modernization, and platform delivery writing.">
   <section>
     <p class="eyebrow">Blog</p>
     <h1>Architecture Notes</h1>
-    <p class="lead">{siteContent.blogIntro}</p>
+    <p class="lead">Notes on modernization, migration strategy, and architecture decisions that change how systems behave in production.</p>
   </section>
 
   <section class="blog-list">
-    {hasPosts ? (
-      siteContent.blogPosts.map((post) => (
-        <a class="blog-link" href={post.href}>
-          <p class="project-meta">{post.date} · {post.readTime}</p>
-          <h2>{post.title}</h2>
-          <p>{post.description}</p>
-          <span class="blog-cta">Read article <Icon name="arrow" /></span>
-        </a>
-      ))
-    ) : (
-      <article class="blog-empty">
-        <h2>Publishing intentionally.</h2>
-        <p>The placeholder article has been pulled from publication. Future posts here will focus on platform modernization, architecture leadership, and distributed systems once they are worth publishing.</p>
-        <div class="actions">
-          <a class="btn" href="/platform-modernization"><Icon name="arrow" /> Platform modernization</a>
-          <a class="btn" href="/staff-principal-software-architect"><Icon name="arrow" /> Staff and Principal scope</a>
-        </div>
-      </article>
-    )}
+    {siteContent.blogPosts.map((post) => (
+      <a class="blog-link" href={post.href}>
+        <p class="project-meta">{post.date} · {post.readTime}</p>
+        <h2>{post.title}</h2>
+        <p>{post.description}</p>
+        <span class="blog-cta">Read article <Icon name="arrow" /></span>
+      </a>
+    ))}
   </section>
 </BaseLayout>
-
-<style>
-  .blog-empty {
-    padding: 1.35rem;
-    border: 1px solid color-mix(in srgb, var(--border), transparent 15%);
-    border-radius: 18px;
-    background: linear-gradient(180deg, color-mix(in srgb, var(--surface-alt), transparent 8%), var(--surface-soft));
-  }
-
-  .blog-empty h2 {
-    margin-bottom: 0.85rem;
-  }
-
-  .blog-empty .actions {
-    margin-top: 1rem;
-  }
-</style>

@@ -1,51 +1,19 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import { articleSchema, breadcrumbSchema } from '../utils/seo';
 
 interface Props {
   title: string;
   description: string;
   date: string;
   readTime: string;
-  image?: string;
-  keywords?: string[];
 }
 
-const { title, description, date, readTime, image, keywords = [] } = Astro.props;
-const canonical = Astro.url.href;
-const schema = [
-  articleSchema({
-    title,
-    description,
-    datePublished: date,
-    canonical,
-    keywords
-  }),
-  breadcrumbSchema([
-    { name: 'Home', path: '/' },
-    { name: 'Blog', path: '/blog' },
-    { name: title, path: Astro.url.pathname }
-  ])
-];
+const { title, description, date, readTime } = Astro.props;
 ---
 
-<BaseLayout
-  title={`${title} | Gary McKeever`}
-  description={description}
-  canonical={canonical}
-  image={image}
-  type="article"
-  keywords={keywords}
-  schema={schema}
->
+<BaseLayout title={`${title} | Gary McKeever`} description={description}>
   <article class="post-shell">
-    <nav class="breadcrumbs" aria-label="Breadcrumb">
-      <a href="/">Home</a>
-      <span aria-hidden="true">/</span>
-      <a href="/blog">Blog</a>
-      <span aria-hidden="true">/</span>
-      <span>{title}</span>
-    </nav>
+    <a class="back-link" href="/blog">← Back to Blog</a>
     <p class="post-meta">{date} · {readTime}</p>
     <h1>{title}</h1>
     <p class="lead">{description}</p>
@@ -54,18 +22,3 @@ const schema = [
     </div>
   </article>
 </BaseLayout>
-
-<style>
-  .breadcrumbs {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    margin-bottom: 1rem;
-    color: var(--muted);
-    font-size: 0.92rem;
-  }
-
-  .breadcrumbs a {
-    color: var(--accent-2);
-  }
-</style>
