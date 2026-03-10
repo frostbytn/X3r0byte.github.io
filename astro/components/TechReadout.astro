@@ -1,15 +1,19 @@
 ---
 import {
   siAngular,
+  siApacheairflow,
   siApachespark,
+  siCamunda,
   siDatabricks,
   siDocker,
   siDotnet,
   siKubernetes,
   siNodedotjs,
+  siOpenjdk,
   siPostgresql,
   siPython,
   siReact,
+  siTemporal,
   siUnity
 } from 'simple-icons';
 
@@ -19,72 +23,63 @@ interface TechItem {
   monogram?: string;
 }
 
-interface Props {
+interface TechGroup {
+  title: string;
   items: TechItem[];
+}
+
+interface Props {
+  groups: TechGroup[];
 }
 
 const iconMap = {
   angular: siAngular,
+  apacheairflow: siApacheairflow,
   apachespark: siApachespark,
+  camunda: siCamunda,
   databricks: siDatabricks,
   docker: siDocker,
   dotnet: siDotnet,
   kubernetes: siKubernetes,
   nodedotjs: siNodedotjs,
+  openjdk: siOpenjdk,
   postgresql: siPostgresql,
   python: siPython,
   react: siReact,
+  temporal: siTemporal,
   unity: siUnity
 };
 
-const { items } = Astro.props as Props;
+const { groups } = Astro.props as Props;
 ---
 
 <div class="tech-readout" aria-label="Technologies I work with">
-  <div class="tech-readout-viewport">
-    <div class="tech-readout-track">
-      <ul class="tech-readout-list">
-        {items.map((item) => {
-          const icon = item.icon ? iconMap[item.icon] : undefined;
-          const accent = icon ? `#${icon.hex}` : 'var(--accent-2)';
+  <div class="tech-groups">
+    {groups.map((group) => (
+      <section class="tech-group">
+        <h3>{group.title}</h3>
+        <ul class="tech-group-list">
+          {group.items.map((item) => {
+            const icon = item.icon ? iconMap[item.icon] : undefined;
+            const accent = icon ? `#${icon.hex}` : 'var(--accent-2)';
 
-          return (
-            <li class="tech-chip" style={`--tech-accent: ${accent}`}>
-              <span class="tech-chip-mark" aria-hidden="true">
-                {icon ? (
-                  <svg class="tech-chip-logo" viewBox="0 0 24 24" fill="currentColor">
-                    <path d={icon.path}></path>
-                  </svg>
-                ) : (
-                  <span class="tech-chip-monogram">{item.monogram ?? item.label.slice(0, 3).toUpperCase()}</span>
-                )}
-              </span>
-              <span class="tech-chip-label">{item.label}</span>
-            </li>
-          );
-        })}
-      </ul>
-      <ul class="tech-readout-list" aria-hidden="true">
-        {items.map((item) => {
-          const icon = item.icon ? iconMap[item.icon] : undefined;
-          const accent = icon ? `#${icon.hex}` : 'var(--accent-2)';
-
-          return (
-            <li class="tech-chip" style={`--tech-accent: ${accent}`}>
-              <span class="tech-chip-mark" aria-hidden="true">
-                {icon ? (
-                  <svg class="tech-chip-logo" viewBox="0 0 24 24" fill="currentColor">
-                    <path d={icon.path}></path>
-                  </svg>
-                ) : (
-                  <span class="tech-chip-monogram">{item.monogram ?? item.label.slice(0, 3).toUpperCase()}</span>
-                )}
-              </span>
-              <span class="tech-chip-label">{item.label}</span>
-            </li>
-          );
-        })}
-      </ul>
-    </div>
+            return (
+              <li class="tech-tile" style={`--tech-accent: ${accent}`} title={item.label} aria-label={item.label}>
+                <span class="tech-tile-mark" aria-hidden="true">
+                  {icon ? (
+                    <svg class="tech-tile-logo" viewBox="0 0 24 24" fill="currentColor">
+                      <path d={icon.path}></path>
+                    </svg>
+                  ) : (
+                    <span class="tech-tile-monogram">{item.monogram ?? item.label.slice(0, 3).toUpperCase()}</span>
+                  )}
+                </span>
+                <span class="tech-tile-label">{item.label}</span>
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    ))}
   </div>
 </div>

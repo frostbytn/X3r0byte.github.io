@@ -19,6 +19,7 @@ const { title, description } = Astro.props;
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={Astro.url.href} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>
   <body>
@@ -30,10 +31,10 @@ const { title, description } = Astro.props;
           <div class="nav-controls">
             <nav class="nav-links" aria-label="Primary">
               <a href="/#principles">How I Think</a>
-              <a href="/#impact">Impact</a>
-              <a href="/#work">Work</a>
-              <a href="/#projects">Projects</a>
-              <a href="/#blog">Field Notes</a>
+              <a href="/#work">Where It Shows Up</a>
+              <a href="/#journey">How I Got Here</a>
+              <a href="/#projects">What I Build</a>
+              <a href="/#technical">What I Work In</a>
               <a href="/#contact">Contact</a>
             </nav>
             <button class="theme-toggle" type="button" data-theme-toggle aria-label="Toggle color theme" title="Toggle color theme">
@@ -54,7 +55,6 @@ const { title, description } = Astro.props;
           <nav class="footer-links" aria-label="Footer">
             <a href="/">Home</a>
             <a href="/#journey">Journey</a>
-            <a href="/blog">Field Notes</a>
             <a href="https://github.com/X3r0byte" target="_blank" rel="noreferrer">GitHub</a>
           </nav>
         </div>

@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteContent } from '../data/site-content';
 import Icon from '../components/Icon.astro';
 import TechReadout from '../components/TechReadout.astro';
+import { siWorldhealthorganization } from 'simple-icons';
 
 interface TimelineEvent {
   year: string;
@@ -14,6 +15,11 @@ interface TimelineEvent {
   kind: 'work' | 'education' | 'milestone';
   weight: 'major' | 'minor';
   progression?: string[];
+  logoSrc?: string;
+  logoAlt?: string;
+  logoMonogram?: string;
+  logoSvgPath?: string;
+  logoColor?: string;
 }
 
 const events: TimelineEvent[] = [
@@ -22,7 +28,9 @@ const events: TimelineEvent[] = [
     title: 'Launched Ekkos',
     detail: 'Shipped a scheduling platform built on resilient reminder semantics and natural-language task creation.',
     kind: 'milestone',
-    weight: 'minor'
+    weight: 'minor',
+    logoSrc: '/img/ekkos.ico',
+    logoAlt: 'Ekkos logo'
   },
   {
     year: '2021',
@@ -33,14 +41,18 @@ const events: TimelineEvent[] = [
     tags: ['Distributed services', 'CI/CD', 'Cloud operations'],
     kind: 'work',
     weight: 'major',
-    progression: ['Intermediate', 'Senior', 'Staff', 'Architect']
+    progression: ['Intermediate', 'Senior', 'Staff', 'Architect'],
+    logoSrc: '/img/moxe.ico',
+    logoAlt: 'Moxe Health logo'
   },
   {
     year: '2021',
     title: 'Pivoted into healthcare tech',
     detail: 'Shifted from small-business tooling to platform-scale distributed systems.',
     kind: 'milestone',
-    weight: 'minor'
+    weight: 'minor',
+    logoSvgPath: siWorldhealthorganization.path,
+    logoColor: `#${siWorldhealthorganization.hex}`
   },
   {
     year: '2016',
@@ -50,7 +62,9 @@ const events: TimelineEvent[] = [
     detail: 'Sole-developed a custom ERP used by ~50 staff. Built GIS portals, finance dashboards, and SAGE integrations. First full-time engineering role.',
     tags: ['C#', '.NET', 'SQL Server', 'Angular', 'Node.js'],
     kind: 'work',
-    weight: 'major'
+    weight: 'major',
+    logoSrc: '/img/nts.ico',
+    logoAlt: 'Northeast Technical Services logo'
   },
   {
     year: '2015',
@@ -58,7 +72,9 @@ const events: TimelineEvent[] = [
     title: 'Pharmacy Tech · Inventory Manager',
     org: 'CVS Pharmacy',
     kind: 'work',
-    weight: 'minor'
+    weight: 'minor',
+    logoSrc: '/img/cvs.ico',
+    logoAlt: 'CVS logo'
   },
   {
     year: '2014',
@@ -67,7 +83,8 @@ const events: TimelineEvent[] = [
     org: 'University of Minnesota Duluth',
     detail: 'Software Engineering, Analysis & Design, and IT in Business. This decision shifted my trajectory into software architecture.',
     kind: 'education',
-    weight: 'major'
+    weight: 'major',
+    logoMonogram: 'UMD'
   },
   {
     year: '2011',
@@ -75,7 +92,9 @@ const events: TimelineEvent[] = [
     title: 'Team Member → Pharmacy Technician',
     org: 'Target Corporation',
     kind: 'work',
-    weight: 'minor'
+    weight: 'minor',
+    logoSrc: '/img/target.ico',
+    logoAlt: 'Target logo'
   },
   {
     year: '2007',
@@ -83,20 +102,23 @@ const events: TimelineEvent[] = [
     title: 'Associate of Arts',
     org: 'Mesabi Range Community & Technical College',
     kind: 'education',
-    weight: 'minor'
+    weight: 'minor',
+    logoMonogram: 'MR'
   },
   {
     year: '2007',
     title: 'Eagle Scout',
     kind: 'milestone',
-    weight: 'minor'
+    weight: 'minor',
+    logoMonogram: 'BSA'
   },
   {
     year: '2007',
     title: 'High School Diploma',
     org: 'Eveleth-Gilbert High School',
     kind: 'education',
-    weight: 'minor'
+    weight: 'minor',
+    logoMonogram: 'EG'
   }
 ];
 
@@ -110,17 +132,9 @@ const kindIcon: Record<string, string> = {
 <BaseLayout title="Gary McKeever | Staff Software Architect" description={siteContent.summary}>
   <section class="hero hero-split">
     <div>
-      <p class="eyebrow">{siteContent.eyebrow}</p>
+      <p class="hero-intro">{siteContent.heroIntro}</p>
       <h1>{siteContent.role}</h1>
-      <p class="lead">{siteContent.summary}</p>
-      <div class="hero-points">
-        {siteContent.heroPoints.map((point, index) => (
-          <p>
-            <Icon name={index === 0 ? 'layers' : index === 1 ? 'route' : 'shield'} />
-            {point}
-          </p>
-        ))}
-      </div>
+      <p class="lead hero-support">{siteContent.summary}</p>
       <div class="actions">
         <a class="btn primary" href="/#contact"><Icon name="mail" /> Contact</a>
         <a class="btn" href={siteContent.links.linkedin} target="_blank" rel="noreferrer"><Icon name="linkedin" /> LinkedIn</a>
@@ -129,6 +143,7 @@ const kindIcon: Record<string, string> = {
     </div>
     <figure class="profile-shot">
       <img src="/img/me.jpg" alt="Gary McKeever" loading="lazy" />
+      <figcaption>Gary McKeever · Staff Software Architect</figcaption>
     </figure>
   </section>
 
@@ -138,15 +153,9 @@ const kindIcon: Record<string, string> = {
       <h2 class="section-heading">How I Think</h2>
     </div>
     <div class="principles-editorial">
-      <div class="principles-lede">
-        <p class="principles-kicker">The principles I keep coming back to when shaping systems, workflows, and delivery models.</p>
-        <p class="section-intro principles-intro">
-          They are less about style than about where complexity belongs and what makes a system easier to change over time.
-        </p>
-      </div>
       <ol class="principles-list">
-        {siteContent.principles.map((principle, index) => (
-          <li class={`principle-statement${index === 0 ? ' is-featured' : ''}`}>
+        {siteContent.principles.map((principle) => (
+          <li class="principle-statement">
             <span class="principle-mark" aria-hidden="true"></span>
             <div class="principle-copy">
               <h3>{principle.title}</h3>
@@ -158,28 +167,12 @@ const kindIcon: Record<string, string> = {
     </div>
   </section>
 
-  <section id="impact">
-    <h2 class="section-heading">Selected Impact</h2>
-    <div class="impact-timeline">
-      {siteContent.selectedImpact.map((item) => (
-        <article class="impact-row">
-          <div class="impact-marker" aria-hidden="true"></div>
-          <div>
-            <h3><Icon name={item.icon} /> {item.title}</h3>
-            <p>{item.text}</p>
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
   <section id="work">
     <div class="section-quote">
       <Icon name="quote" />
       <p>{siteContent.workQuote}</p>
     </div>
-    <h2 class="section-heading">Work</h2>
-    <p class="section-intro">{siteContent.workIntro}</p>
+    <h2 class="section-heading">Where It Shows Up</h2>
     <div class="work-editorial">
       {siteContent.professionalWork.map((work) => (
         <article class="work-entry">
@@ -203,48 +196,13 @@ const kindIcon: Record<string, string> = {
     </div>
   </section>
 
-  <section id="projects" class="personal-section">
-    <div class="section-quote">
-      <Icon name="quote" />
-      <p>{siteContent.projectsIntro}</p>
-    </div>
-    <h2 class="section-heading">Projects</h2>
-    <div class="project-showcase">
-      {siteContent.personalProjects.map((project) => (
-        <article class="showcase-entry">
-          {project.previewImage && (
-            <a class="showcase-preview" href={project.href} target="_blank" rel="noreferrer">
-              <img src={project.previewImage} alt={project.previewAlt ?? `${project.title} preview`} loading="lazy" />
-            </a>
-          )}
-          <div class="showcase-body">
-            <div class="work-entry-header">
-              <h3><Icon name={project.icon} /> {project.title}</h3>
-              <span class="status-badge">{project.status}</span>
-            </div>
-            <p class="showcase-tagline">{project.tagline}</p>
-            <p>{project.description}</p>
-            <p class="work-stack"><Icon name="layers" /> {project.stack}</p>
-            {project.href && (
-              <div class="actions">
-                <a class="btn" href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>
-                  <Icon name="arrow" /> {project.hrefLabel ?? 'View project'}
-                </a>
-              </div>
-            )}
-          </div>
-        </article>
-      ))}
-    </div>
-  </section>
-
-  <section id="journey">
+  <section id="journey" class="journey-section">
     <div class="section-quote">
       <Icon name="quote" />
       <p>From pharmacy counters to healthtech platform architecture, the pivots and compounding decisions that shaped how I build today.</p>
     </div>
     <div class="journey-hero">
-      <h2 class="section-heading">Journey</h2>
+      <h2 class="section-heading">How I Got Here</h2>
     </div>
 
     <section class="journey-layout">
@@ -264,7 +222,22 @@ const kindIcon: Record<string, string> = {
               </div>
               <div class="tl-body">
                 <span class="tl-date">{evt.endYear ? `${evt.year} – ${evt.endYear}` : evt.year}</span>
-                <h3><Icon name={kindIcon[evt.kind]} /> {evt.title}</h3>
+                <h3>
+                  <span class="tl-title-mark" aria-hidden="true">
+                    {evt.logoSrc ? (
+                      <img class="tl-logo" src={evt.logoSrc} alt={evt.logoAlt ?? ''} loading="lazy" />
+                    ) : evt.logoSvgPath ? (
+                      <svg class="tl-logo-svg" viewBox="0 0 24 24" fill="currentColor" style={`color: ${evt.logoColor ?? 'var(--accent-2)'}`}>
+                        <path d={evt.logoSvgPath}></path>
+                      </svg>
+                    ) : evt.logoMonogram ? (
+                      <span class="tl-logo-fallback">{evt.logoMonogram}</span>
+                    ) : (
+                      <Icon name={kindIcon[evt.kind]} />
+                    )}
+                  </span>
+                  {evt.title}
+                </h3>
                 {evt.org && <p class="tl-org">{evt.org}</p>}
                 {evt.detail && <p class="tl-detail">{evt.detail}</p>}
                 {evt.progression && (
@@ -285,19 +258,6 @@ const kindIcon: Record<string, string> = {
           ))}
         </div>
       </div>
-
-      <aside class="journey-rail" aria-label="Journey highlights">
-        <div class="rail-block">
-          <h3>At a glance</h3>
-          <ul class="rail-list">
-            <li>Architect focused on workflow, platform, and system shape.</li>
-            <li>Strongest in modernization under real constraints.</li>
-            <li>Thinks in patterns: compensation, idempotent fanout, durable execution, and queue-backed scale.</li>
-            <li>Equally interested in architecture and deployment model.</li>
-            <li>Brings both future-state vision and practical delivery judgment.</li>
-          </ul>
-        </div>
-      </aside>
     </section>
 
     <section class="journey-cta closer">
@@ -309,36 +269,53 @@ const kindIcon: Record<string, string> = {
     </section>
   </section>
 
-  <section id="technical">
-    <h2 class="section-heading">Technical Snapshot</h2>
-    <TechReadout items={siteContent.techReadout} />
-    <div class="technical-list">
-      {siteContent.technicalSnapshot.map((item) => (
-        <article class="technical-row">
-          <h3>{item.title}</h3>
-          <p>{item.text}</p>
-          <p class="technical-detail">{item.detail}</p>
+  <section id="projects" class="personal-section">
+    <div class="section-quote">
+      <Icon name="quote" />
+      <p>{siteContent.projectsIntro}</p>
+    </div>
+    <h2 class="section-heading">What I Build</h2>
+    <div class="project-showcase">
+      {siteContent.personalProjects.map((project) => (
+        <article class="showcase-entry">
+          {project.previewImage && (
+            <a class="showcase-preview" href={project.href} target="_blank" rel="noreferrer">
+              <img src={project.previewImage} alt={project.previewAlt ?? `${project.title} preview`} loading="lazy" />
+            </a>
+          )}
+          <div class="showcase-body">
+            <div class="work-entry-header">
+              <h3>
+                {project.logoSrc ? (
+                  <span class="project-logo-mark" aria-hidden="true">
+                    <img class="project-logo" src={project.logoSrc} alt={project.logoAlt ?? ''} loading="lazy" width="18" height="18" />
+                  </span>
+                ) : (
+                  <Icon name={project.icon} />
+                )}
+                {project.title}
+              </h3>
+              <span class="status-badge">{project.status}</span>
+            </div>
+            <p class="showcase-tagline">{project.tagline}</p>
+            <p>{project.description}</p>
+            <p class="work-stack"><Icon name="layers" /> {project.stack}</p>
+            {project.href && (
+              <div class="actions">
+                <a class="btn" href={project.href} target={project.href.startsWith('http') ? '_blank' : undefined} rel={project.href.startsWith('http') ? 'noreferrer' : undefined}>
+                  <Icon name="arrow" /> {project.hrefLabel ?? 'View project'}
+                </a>
+              </div>
+            )}
+          </div>
         </article>
       ))}
     </div>
   </section>
 
-  <section id="blog">
-    <div class="section-quote">
-      <Icon name="quote" />
-      <p>{siteContent.blogIntro}</p>
-    </div>
-    <h2 class="section-heading">Field Notes</h2>
-    <div class="blog-list">
-      {siteContent.blogPosts.map((post) => (
-        <a class="blog-link" href={post.href}>
-          <p class="project-meta">{post.date} · {post.readTime}</p>
-          <h3>{post.title}</h3>
-          <p>{post.description}</p>
-          <span class="blog-cta">Read article <Icon name="arrow" /></span>
-        </a>
-      ))}
-    </div>
+  <section id="technical">
+    <h2 class="section-heading">What I Work In</h2>
+    <TechReadout groups={siteContent.techReadout} />
   </section>
 
   <section id="contact" class="closer">
@@ -353,6 +330,14 @@ const kindIcon: Record<string, string> = {
 </BaseLayout>
 
 <style>
+  :global(main > .container) {
+    width: min(100% - 2rem, 1380px);
+  }
+
+  .journey-section {
+    width: 100%;
+  }
+
   .journey-hero {
     margin-top: 1rem;
     margin-bottom: 1.25rem;
@@ -360,34 +345,17 @@ const kindIcon: Record<string, string> = {
 
   .journey-layout {
     margin-top: 1.5rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.85fr);
-    gap: 2.35rem;
-    align-items: start;
+    display: block;
   }
 
   .timeline-panel {
-    border-right: 1px solid var(--border);
-    padding-right: 1.25rem;
-    max-height: calc(100vh - 210px);
-    overflow-y: auto;
-    overflow-x: hidden;
-    scrollbar-width: thin;
-    scrollbar-color: color-mix(in srgb, var(--accent), transparent 35%) transparent;
+    max-height: none;
+    overflow: visible;
   }
 
   .timeline-panel:focus-visible {
     outline: none;
     box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent), transparent 70%);
-    border-radius: 8px;
-  }
-
-  .timeline-panel::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  .timeline-panel::-webkit-scrollbar-thumb {
-    background: color-mix(in srgb, var(--accent), transparent 35%);
     border-radius: 8px;
   }
 
@@ -422,6 +390,7 @@ const kindIcon: Record<string, string> = {
     display: grid;
     gap: 0;
     padding-bottom: 0.4rem;
+    width: 100%;
   }
 
   .timeline-line {
@@ -494,6 +463,10 @@ const kindIcon: Record<string, string> = {
   .tl-dot.minor.milestone { background: #c6a04a; }
 
   .tl-body {
+    display: grid;
+    grid-template-columns: minmax(120px, 132px) minmax(0, 1fr);
+    column-gap: 1.1rem;
+    align-items: start;
     transition: transform 200ms ease;
   }
 
@@ -502,6 +475,8 @@ const kindIcon: Record<string, string> = {
   }
 
   .tl-date {
+    grid-column: 1;
+    grid-row: 1 / span 4;
     font-size: 0.76rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -510,11 +485,66 @@ const kindIcon: Record<string, string> = {
   }
 
   .tl-body h3 {
+    grid-column: 2;
     display: flex;
     align-items: center;
-    gap: 0.35rem;
+    gap: 0.55rem;
     margin: 0.1rem 0 0;
   }
+
+  .tl-title-mark {
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    overflow: visible;
+  }
+
+  .tl-logo {
+    width: 1.2rem;
+    height: 1.2rem;
+    object-fit: contain;
+    filter: saturate(1.05) brightness(1.05);
+  }
+
+  .tl-logo-svg {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  .tl-logo-fallback {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-2);
+    font-size: 0.56rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    line-height: 1;
+  }
+
+  .project-logo-mark {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+  }
+
+  .project-logo {
+    width: 1.1rem;
+    height: 1.1rem;
+    display: block;
+    max-width: 1.1rem;
+    max-height: 1.1rem;
+    object-fit: contain;
+  }
+
 
   .tl-item.major .tl-body h3 {
     font-size: 1.08rem;
@@ -525,16 +555,18 @@ const kindIcon: Record<string, string> = {
   }
 
   .tl-org {
+    grid-column: 2;
     font-size: 0.86rem;
     color: var(--accent-2);
     margin-top: 0.08rem;
   }
 
   .tl-detail {
+    grid-column: 2;
     color: var(--muted);
     margin-top: 0.32rem;
     font-size: 0.95rem;
-    max-width: 54ch;
+    max-width: none;
   }
 
   .tl-item.minor .tl-detail {
@@ -542,6 +574,7 @@ const kindIcon: Record<string, string> = {
   }
 
   .tl-tags {
+    grid-column: 2;
     display: flex;
     align-items: center;
     gap: 0.35rem;
@@ -551,6 +584,7 @@ const kindIcon: Record<string, string> = {
   }
 
   .tl-progression {
+    grid-column: 2;
     display: flex;
     align-items: center;
     gap: 0.28rem;
@@ -574,54 +608,30 @@ const kindIcon: Record<string, string> = {
     font-size: 0.76rem;
   }
 
-  .journey-rail {
-    position: sticky;
-    top: 88px;
-    display: grid;
-    gap: 1.1rem;
-    align-content: start;
-  }
-
-  .rail-block {
-    border-top: 1px solid var(--border);
-    padding-top: 1rem;
-  }
-
-  .rail-block h3 {
-    margin-bottom: 0.45rem;
-    font-size: 1.02rem;
-  }
-
-  .rail-list {
-    margin: 0.4rem 0 0;
-    padding-left: 1rem;
-    color: var(--muted);
-    display: grid;
-    gap: 0.5rem;
-    font-size: 0.95rem;
-  }
-
   .journey-cta {
     margin-top: 2rem;
   }
 
   @media (max-width: 960px) {
-    .journey-layout {
-      grid-template-columns: 1fr;
-      gap: 1.4rem;
-    }
-
     .timeline-panel {
-      border-right: 0;
-      padding-right: 0;
       max-height: none;
       overflow: visible;
     }
 
-    .journey-rail {
-      position: static;
-      border-top: 1px solid var(--border);
-      padding-top: 0.8rem;
+    .tl-body {
+      grid-template-columns: 1fr;
+      column-gap: 0;
+      row-gap: 0.12rem;
+    }
+
+    .tl-date,
+    .tl-body h3,
+    .tl-org,
+    .tl-detail,
+    .tl-tags,
+    .tl-progression {
+      grid-column: 1;
+      grid-row: auto;
     }
   }
 
