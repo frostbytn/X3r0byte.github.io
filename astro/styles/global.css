@@ -689,6 +689,8 @@ p {
   display: block;
   border-radius: 12px;
   overflow: hidden;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--surface-alt), transparent 8%), var(--surface-soft));
+  border: 1px solid color-mix(in srgb, var(--border), transparent 12%);
   transition: transform 220ms ease;
 }
 
@@ -698,8 +700,9 @@ p {
 
 .showcase-preview img {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  object-position: center center;
   display: block;
 }
 

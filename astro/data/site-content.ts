@@ -153,7 +153,7 @@ export const siteContent = {
       status: 'Published alpha',
       href: 'https://astrverse.net/',
       hrefLabel: 'Visit ASTR',
-      previewImage: 'https://astrverse.net/og-card.png',
+      previewImage: 'https://astrverse.net/social-card.png',
       previewAlt: 'ASTR single-shard persistent-universe survival sandbox preview'
     }
   ],
