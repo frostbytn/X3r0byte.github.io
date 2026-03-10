@@ -135,8 +135,6 @@ export const siteContent = {
         'A reminder system built around timing, state, and friction reduction. It turns plain-language input into structured reminder behavior. It is also a working product for testing whether better workflow design can make small software more dependable and considerate.',
       stack: 'React, .NET, Quartz.NET, API integrations',
       icon: 'calendar',
-      logoSrc: '/img/logo192.png',
-      logoAlt: 'Ekkos logo',
       status: 'Active build',
       href: 'https://ekkos.io',
       hrefLabel: 'Visit Ekkos',
