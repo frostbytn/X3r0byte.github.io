@@ -24,9 +24,18 @@ interface TimelineEvent {
 
 const events: TimelineEvent[] = [
   {
-    year: '2024',
-    title: 'Launched Ekkos',
-    detail: 'Shipped a scheduling platform built on resilient reminder semantics and natural-language task creation.',
+    year: '2026',
+    title: 'Published ASTR alpha',
+    detail: 'Shipped a playable alpha build of ASTR: a single shard persistent universe survival game.',
+    kind: 'milestone',
+    weight: 'minor',
+    logoSrc: 'https://astrverse.net/favicon.svg',
+    logoAlt: 'ASTR logo'
+  },
+  {
+    year: '2025',
+    title: 'Published Ekkos',
+    detail: 'Published a scheduling platform built on resilient reminder semantics and natural-language task creation.',
     kind: 'milestone',
     weight: 'minor',
     logoSrc: '/img/ekkos.ico',
@@ -331,7 +340,7 @@ const kindIcon: Record<string, string> = {
 
 <style>
   :global(main > .container) {
-    width: min(100% - 8rem, 1100px);
+    width: min(100% - 2rem, 1380px);
   }
 
   .journey-section {
