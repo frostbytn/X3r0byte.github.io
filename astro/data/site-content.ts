@@ -168,7 +168,7 @@ export const siteContent = {
     }
   ],
   links: {
-    github: 'https://github.com/X3r0byte',
+    github: 'https://github.com/frostbytn',
     linkedin: 'https://www.linkedin.com/in/gmckeever-88/',
     email: 'mailto:gmckeever88@outlook.com'
   },
