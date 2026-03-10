@@ -1,12 +1,35 @@
 ---
 import '../styles/global.css';
+import { absoluteUrl, buildPageSchema, defaultKeywords, type SchemaInput } from '../utils/seo';
 
 interface Props {
   title: string;
   description: string;
+  canonical?: string;
+  image?: string;
+  imageAlt?: string;
+  keywords?: string[];
+  robots?: string;
+  type?: 'website' | 'article' | 'profile';
+  schema?: SchemaInput | SchemaInput[];
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description,
+  canonical,
+  image = '/og-card.png',
+  imageAlt = 'Gary McKeever software architecture site preview',
+  keywords = [],
+  robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
+  type = 'website',
+  schema = []
+} = Astro.props;
+
+const canonicalUrl = canonical ?? Astro.url.href;
+const socialImage = absoluteUrl(image, Astro.site ?? Astro.url);
+const schemaMarkup = buildPageSchema(schema, Astro.site ?? Astro.url);
+const keywordContent = [...new Set([...defaultKeywords, ...keywords])].join(', ');
 ---
 
 <!doctype html>
@@ -15,11 +38,27 @@ const { title, description } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywordContent} />
+    <meta name="robots" content={robots} />
+    <meta name="author" content="Gary McKeever" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:site_name" content="Gary McKeever" />
+    <meta property="og:locale" content="en_US" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={Astro.url.href} />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+    <link rel="alternate" type="application/rss+xml" title="Gary McKeever RSS" href="/rss.xml" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    {schemaMarkup && <script type="application/ld+json" set:html={schemaMarkup}></script>}
     <title>{title}</title>
   </head>
   <body>

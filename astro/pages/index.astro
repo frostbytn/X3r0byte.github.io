@@ -4,6 +4,7 @@ import { siteContent } from '../data/site-content';
 import Icon from '../components/Icon.astro';
 import TechReadout from '../components/TechReadout.astro';
 import { siWorldhealthorganization } from 'simple-icons';
+import { breadcrumbSchema, faqPageSchema, itemListSchema, personSchema, webpageSchema, websiteSchema } from '../utils/seo';
 
 interface TimelineEvent {
   year: string;
@@ -127,9 +128,45 @@ const kindIcon: Record<string, string> = {
   education: 'file',
   milestone: 'spark'
 };
+
+const schema = [
+  personSchema(),
+  websiteSchema(),
+  webpageSchema({
+    title: siteContent.homeTitle,
+    description: siteContent.homeDescription,
+    path: '/'
+  }),
+  faqPageSchema(siteContent.answerBlocks),
+  itemListSchema(
+    'Architecture topic pages',
+    siteContent.focusAreas.map((area) => ({
+      name: area.title,
+      path: area.href,
+      description: area.description
+    }))
+  ),
+  breadcrumbSchema([{ name: 'Home', path: '/' }])
+];
 ---
 
-<BaseLayout title="Gary McKeever | Staff Software Architect" description={siteContent.summary}>
+<BaseLayout
+  title={siteContent.homeTitle}
+  description={siteContent.homeDescription}
+  canonical="https://garymckeever.us/"
+  image="/og-card.png"
+  type="profile"
+  keywords={[
+    'gary mckeever',
+    'staff software architect',
+    'principal software architect',
+    'software architect',
+    'platform modernization',
+    'distributed systems',
+    'healthcare platform engineering'
+  ]}
+  schema={schema}
+>
   <section class="hero hero-split">
     <div>
       <p class="hero-intro">{siteContent.heroIntro}</p>
@@ -641,6 +678,13 @@ const kindIcon: Record<string, string> = {
       animation: none !important;
       transition: none !important;
       transform: none !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .answer-grid,
+    .focus-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>

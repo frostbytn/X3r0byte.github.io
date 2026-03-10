@@ -11,15 +11,25 @@
     "type": "git",
     "url": "git+https://github.com/frostbytn/X3r0byte.github.io.git"
   },
-  "keywords": [],
+  "keywords": [
+    "gary mckeever",
+    "staff software architect",
+    "principal software architect",
+    "software architect",
+    "platform modernization",
+    "distributed systems",
+    "architecture leadership"
+  ],
   "author": "",
   "license": "ISC",
   "type": "module",
   "bugs": {
     "url": "https://github.com/frostbytn/X3r0byte.github.io/issues"
   },
-  "homepage": "https://github.com/frostbytn/X3r0byte.github.io#readme",
+  "homepage": "https://garymckeever.us",
   "dependencies": {
+    "@astrojs/rss": "^4.0.12",
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.18.0",
     "simple-icons": "^16.11.0"
   }

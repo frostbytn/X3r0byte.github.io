@@ -2,8 +2,40 @@ export const siteContent = {
   name: 'Gary McKeever',
   heroIntro: 'Hello, I\'m Gary McKeever, and I',
   role: 'Design systems that survive business whiplash.',
+  homeTitle: 'Gary McKeever | Staff Software Architect',
+  homeDescription:
+    'Gary McKeever is a Staff Software Architect focused on platform modernization, distributed systems, and architecture leadership for teams shipping through complexity.',
   summary:
     'Over the last decade, I\'ve gotten good at reading what the business actually needs and designing systems to support it. I make the architectural calls that keep features shipping while the platform evolves underneath to keep solutions moving forward.',
+  answerBlocks: [
+    {
+      question: 'Who is Gary McKeever?',
+      answer:
+        'Gary McKeever is a Staff Software Architect who leads platform modernization, distributed systems evolution, and architecture decisions for software teams working through operational complexity.'
+    },
+    {
+      question: 'What kind of software architecture work does he do?',
+      answer:
+        'He works on platform transitions, delivery-safe modernization, orchestration and workflow systems, developer platform improvements, and the runtime decisions that shape how software behaves in production.'
+    },
+    {
+      question: 'When should a team bring him in?',
+      answer:
+        'When the business needs architecture leadership without freezing delivery: migrations, scaling pains, reliability gaps, or systems that need a clearer long-term shape.'
+    }
+  ],
+  focusAreas: [
+    {
+      title: 'Platform Modernization',
+      description: 'Modernize legacy foundations without stalling delivery or forcing a rewrite fantasy.',
+      href: '/platform-modernization'
+    },
+    {
+      title: 'Staff and Principal Architecture Leadership',
+      description: 'Define what strong architecture leadership looks like when systems and organizations are both under pressure.',
+      href: '/staff-principal-software-architect'
+    }
+  ],
   heroPoints: [
     {
       title: 'Platform evolution',
@@ -145,31 +177,25 @@ export const siteContent = {
     },
     {
       title: 'ASTR',
-      tagline: 'A controlled environment for testing system rules, progression logic, and runtime tradeoffs.',
+      tagline: 'A top-down space survival sandbox built as a single-shard persistent universe with MMO-style world pressure.',
       description:
-        'A controlled environment for testing system rules, progression logic, and runtime tradeoffs in a domain where architecture choices are visible. It is used to evaluate extensibility and show how software structure changes system behavior.',
-      stack: 'Unity, C#, WebGL',
+        'ASTR is now its own published game entity: a single-shard persistent-universe survival sandbox where mining, processing, logistics, building, movement, and defense all happen in one shared world and create exposure that other players and threats can push against.',
+      stack: 'Custom game architecture, single-shard networking, persistent-world simulation, survival sandbox design',
       icon: 'cube',
-      status: 'Ongoing R&D',
-      href: '/projects/astr',
-      hrefLabel: 'Play ASTR'
+      status: 'Published alpha',
+      href: 'https://astrverse.net/',
+      hrefLabel: 'Visit ASTR',
+      previewImage: 'https://astrverse.net/og-card.png',
+      previewAlt: 'ASTR single-shard persistent-universe survival sandbox preview'
     }
   ],
   blogPosts: [
-    {
-      title: 'Modernization Without the Rewrite Trap',
-      description:
-        'How to reduce coupling, preserve delivery flow, and move a system toward a better shape without pretending a rewrite will save you.',
-      href: '/blog/modernization-without-the-rewrite-trap',
-      date: 'March 2026',
-      readTime: '7 min read'
-    }
   ],
   links: {
     github: 'https://github.com/X3r0byte',
     linkedin: 'https://www.linkedin.com/in/gmckeever-88/',
     email: 'mailto:gmckeever88@outlook.com'
   },
-  blogIntro: 'I write when there is a pattern worth naming or a mistake worth helping someone else avoid.',
+  blogIntro: 'Writing is coming back into the site intentionally. When articles are published, they will focus on platform modernization, distributed systems, and architecture leadership.',
   contactLead: 'If you want to talk about architecture, platform modernization, or building systems that can keep moving as the business changes, get in touch.'
 };
